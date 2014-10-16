@@ -1,7 +1,13 @@
 class GeoObject < ActiveRecord::Base
-  has_many :dependents, :class_name => "GeoObject", :foreign_key => "dependent_id"
   belongs_to :tag
 
+  has_many :containers, foreign_key: 'container_id', class_name: "GeoNesting"
+  has_many :containees, foreign_key: 'containee_id', class_name: "GeoNesting"
+
+  has_many :contained_geo_objects, through: :containers, source: 'containee'
+  has_many :containee_geo_objects, through: :containees, source: 'container'
+
+  # We can't have null spatial columns
   before_create :set_defaults
 
   private

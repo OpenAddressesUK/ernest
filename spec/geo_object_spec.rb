@@ -11,13 +11,18 @@ describe "GeoObject" do
     expect(geo_object.area.to_s).to eq("POLYGON ((0.0 1.0, 2.0 1.0, 2.0 2.0, 1.0 2.0, 0.0 1.0))")
   end
 
-  it "should allow dependent geo_objects" do
-    geo_object = GeoObject.create(label: "Little Street" )
-    geo_object.dependents << GeoObject.create(label: "Big Street")
-    geo_object.save
+  it "should allow nesting" do
+    town = GeoObject.create(label: "Big Town" )
+    postcode = GeoObject.create(label: "ABC 123")
 
-    expect(geo_object.dependents.count).to eq(1)
-    expect(geo_object.dependents.first.label).to eq("Big Street")
+    town.contained_geo_objects << postcode
+    town.save
+
+    expect(town.contained_geo_objects.to_a.count).to eq(1)
+    expect(town.contained_geo_objects.first.label).to eq("ABC 123")
+
+    expect(postcode.containee_geo_objects.to_a.count).to eq(1)
+    expect(postcode.containee_geo_objects.first.label).to eq("Big Town")
   end
 
   it "should allow overriding of defaults" do

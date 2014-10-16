@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014154043) do
+ActiveRecord::Schema.define(version: 20141016103946) do
 
   create_table "addresses", force: true do |t|
   end
@@ -21,12 +21,16 @@ ActiveRecord::Schema.define(version: 20141014154043) do
     t.integer "geo_object_id"
   end
 
+  create_table "geo_nestings", id: false, force: true do |t|
+    t.integer "container_id"
+    t.integer "containee_id"
+  end
+
   create_table "geo_objects", force: true do |t|
     t.string  "label"
-    t.spatial "point",        limit: {:type=>"point"},       null: false
-    t.spatial "line",         limit: {:type=>"line_string"}, null: false
-    t.spatial "area",         limit: {:type=>"geometry"},    null: false
-    t.integer "dependent_id"
+    t.spatial "point",  limit: {:type=>"point"},       null: false
+    t.spatial "line",   limit: {:type=>"line_string"}, null: false
+    t.spatial "area",   limit: {:type=>"geometry"},    null: false
     t.integer "tag_id"
   end
 
