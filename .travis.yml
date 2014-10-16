@@ -5,3 +5,11 @@ rvm:
 - 2.1.0
 before_script:
   - bundle exec rake db:create && bundle exec rake db:migrate
+notifications:
+  irc:
+    channels:
+    - irc.freenode.net#openaddresses
+    template:
+    - ! '%{repository} %{branch} - %{message} %{build_url}'
+    on_success: change
+    on_failure: always
