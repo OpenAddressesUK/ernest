@@ -1,8 +1,9 @@
 development:
   adapter: mysql2spatial
   encoding: utf8
-  database: ernest_marples
+  database: ernest
   pool: 5
+  host: 127.0.0.1
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -10,8 +11,9 @@ development:
 test:
   adapter: mysql2spatial
   encoding: utf8
-  database: ernest_marples_test
+  database: ernest_test
   pool: 5
+  host: 127.0.0.1
   username: root
   password:
   socket: /tmp/mysql.sock
