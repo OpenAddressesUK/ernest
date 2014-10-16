@@ -3,12 +3,13 @@ require 'rack/test'
 require 'pry'
 require 'database_cleaner'
 
+ENV['RACK_ENV'] = 'test'
+
 require File.expand_path '../../ernest.rb', __FILE__
 
 require 'simplecov'
 SimpleCov.start
 
-ENV['RACK_ENV'] = 'test'
 ActiveRecord::Base.logger.level = 1
 
 module RSpecMixin
