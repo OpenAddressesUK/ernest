@@ -5,6 +5,9 @@ require 'database_cleaner'
 
 require File.expand_path '../../ernest.rb', __FILE__
 
+require 'simplecov'
+SimpleCov.start
+
 ENV['RACK_ENV'] = 'test'
 ActiveRecord::Base.logger.level = 1
 
