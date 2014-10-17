@@ -15,7 +15,7 @@ describe "GeoObject" do
     town = GeoObject.create(label: "Big Town" )
     postcode = GeoObject.create(label: "ABC 123")
 
-    town.contained_geo_objects << postcode
+    town.contains << postcode
     town.save
 
     expect(town.contains.to_a.count).to eq(1)
