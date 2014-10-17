@@ -1,24 +1,14 @@
 class Tag < ActiveRecord::Base
+  belongs_to :tag_type
 
-  ALLOWED_LABELS = [
-    'organisation',
-    'department',
-    'po_box',
-    'sub_building_name',
-    'sub_building_no',
-    'building_name',
-    'building_no',
-    'dependent_street',
-    'street',
-    'double_dependent_locality',
-    'dependent_locality',
-    'locality',
-    'post_town',
-    'county',
-    'postcode',
-    'country'
-  ]
+  # We can't have null spatial columns
+  before_create :set_defaults
 
-  validates :label, inclusion: { in: ALLOWED_LABELS, message: "%{value} is not a valid label"  }
+  private
 
+    def set_defaults
+      self.point ||= "POINT (0 0)"
+      self.line ||= "LINESTRING (0 0,0 10)"
+      self.area ||= "POLYGON ((0 1,2 1,2 2,1 2,0 1))"
+    end
 end

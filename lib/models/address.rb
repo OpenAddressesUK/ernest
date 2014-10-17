@@ -1,9 +1,9 @@
 class Address < ActiveRecord::Base
-  has_and_belongs_to_many :geo_objects
+  has_and_belongs_to_many :tags
 
-  Tag::ALLOWED_LABELS.each do |label|
+  TagType::ALLOWED_LABELS.each do |label|
     define_method(label) do
-      geo_objects.select { |g| g.tag.label == label }.first
+      tags.select { |g| g.tag_type.label == label }.first
     end
   end
 

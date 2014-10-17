@@ -11,36 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016103946) do
+ActiveRecord::Schema.define(version: 20141017154043) do
 
   create_table "addresses", force: true do |t|
   end
 
-  create_table "addresses_geo_objects", id: false, force: true do |t|
+  create_table "addresses_tags", id: false, force: true do |t|
     t.integer "address_id"
-    t.integer "geo_object_id"
-  end
-
-  create_table "geo_nestings", id: false, force: true do |t|
-    t.integer "container_id"
-    t.integer "containee_id"
-  end
-
-  create_table "geo_objects", force: true do |t|
-    t.string  "label"
-    t.spatial "point",  limit: {:type=>"point"},       null: false
-    t.spatial "line",   limit: {:type=>"line_string"}, null: false
-    t.spatial "area",   limit: {:type=>"geometry"},    null: false
     t.integer "tag_id"
   end
 
-  add_index "geo_objects", ["area"], :name => "index_geo_objects_on_area", :spatial => true
-  add_index "geo_objects", ["line"], :name => "index_geo_objects_on_line", :spatial => true
-  add_index "geo_objects", ["point"], :name => "index_geo_objects_on_point", :spatial => true
-
-  create_table "tags", force: true do |t|
+  create_table "tag_types", force: true do |t|
     t.string "label"
     t.string "description"
   end
+
+  create_table "tags", force: true do |t|
+    t.string  "label"
+    t.spatial "point",       limit: {:type=>"point"},       null: false
+    t.spatial "line",        limit: {:type=>"line_string"}, null: false
+    t.spatial "area",        limit: {:type=>"geometry"},    null: false
+    t.integer "tag_type_id"
+  end
+
+  add_index "tags", ["area"], :name => "index_tags_on_area", :spatial => true
+  add_index "tags", ["line"], :name => "index_tags_on_line", :spatial => true
+  add_index "tags", ["point"], :name => "index_tags_on_point", :spatial => true
 
 end
