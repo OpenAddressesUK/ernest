@@ -11,14 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017154043) do
+ActiveRecord::Schema.define(version: 20141017155906) do
+
+  create_table "activities", force: true do |t|
+    t.datetime "executed_at"
+  end
 
   create_table "addresses", force: true do |t|
+    t.integer "activity_id"
   end
 
   create_table "addresses_tags", id: false, force: true do |t|
     t.integer "address_id"
     t.integer "tag_id"
+  end
+
+  create_table "derivations", force: true do |t|
+    t.integer "entity_id"
+    t.string  "entity_type"
+    t.integer "activity_id"
+  end
+
+  create_table "sources", force: true do |t|
+    t.string  "url"
+    t.integer "activity_id"
   end
 
   create_table "tag_types", force: true do |t|
@@ -32,6 +48,7 @@ ActiveRecord::Schema.define(version: 20141017154043) do
     t.spatial "line",        limit: {:type=>"line_string"}, null: false
     t.spatial "area",        limit: {:type=>"geometry"},    null: false
     t.integer "tag_type_id"
+    t.integer "activity_id"
   end
 
   add_index "tags", ["area"], :name => "index_tags_on_area", :spatial => true
