@@ -18,11 +18,11 @@ describe "GeoObject" do
     town.contained_geo_objects << postcode
     town.save
 
-    expect(town.contained_geo_objects.to_a.count).to eq(1)
-    expect(town.contained_geo_objects.first.label).to eq("ABC 123")
+    expect(town.contains.to_a.count).to eq(1)
+    expect(town.contains.first.label).to eq("ABC 123")
 
-    expect(postcode.containee_geo_objects.to_a.count).to eq(1)
-    expect(postcode.containee_geo_objects.first.label).to eq("Big Town")
+    expect(postcode.contained_by.to_a.count).to eq(1)
+    expect(postcode.contained_by.first.label).to eq("Big Town")
   end
 
   it "should allow overriding of defaults" do
