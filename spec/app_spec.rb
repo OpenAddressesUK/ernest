@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe Ernest do
 
-  it "should create an address" do
-    body = {
+  before(:all) do
+    @user = FactoryGirl.create(:user)
+    @body = {
       address: {
         building_no: "3",
         street: "Hobbit Drive",
@@ -15,9 +16,16 @@ describe Ernest do
         executed_at: "2014-01-01T13:00:00Z",
         url: "http://www.example.com"
       }
-    }
+    }.to_json
+  end
 
-    post 'address', body.to_json
+  it "should return 401 if the API key is incorrect" do
+    post 'address', nil, { "HTTP_ACCESS_TOKEN" => 'thisisobviouslyfake' }
+    expect(last_response.status).to eq(401)
+  end
+
+  it "should create an address" do
+    post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(last_response.status).to eq(201)
 
@@ -31,6 +39,12 @@ describe Ernest do
     expect(address.locality.label).to eq('Hobbitton')
     expect(address.street.label).to eq('Hobbit Drive')
     expect(address.building_no.label).to eq('3')
+  end
+
+  it "should apply a user" do
+    post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+
+    expect(Address.last.user).to eq(@user)
   end
 
 end

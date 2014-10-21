@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017155906) do
+ActiveRecord::Schema.define(version: 20141021173212) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141017155906) do
 
   create_table "addresses", force: true do |t|
     t.integer "activity_id"
+    t.integer "user_id"
   end
 
   create_table "addresses_tags", id: false, force: true do |t|
@@ -54,5 +55,11 @@ ActiveRecord::Schema.define(version: 20141017155906) do
   add_index "tags", ["area"], :name => "index_tags_on_area", :spatial => true
   add_index "tags", ["line"], :name => "index_tags_on_line", :spatial => true
   add_index "tags", ["point"], :name => "index_tags_on_point", :spatial => true
+
+  create_table "users", force: true do |t|
+    t.string "name"
+    t.string "email"
+    t.string "api_key"
+  end
 
 end

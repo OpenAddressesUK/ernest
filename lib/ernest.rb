@@ -6,11 +6,27 @@ require_rel '/models'
 
 class Ernest < Sinatra::Base
 
-  post '/address' do
+  register do
+    def check (name)
+      condition do
+        error 401 unless send(name) == true
+      end
+    end
+  end
+
+  helpers do
+    def valid_key?
+      @user = User.find_by_api_key(request.env["HTTP_ACCESS_TOKEN"])
+      !@user.nil?
+    end
+  end
+
+  post '/address', check: :valid_key? do
     body = JSON.parse request.body.read
 
     provenance = create_provenance(body['provenance'])
     @address = Address.new(activity_attributes: provenance)
+    @address.user = @user
 
     body['address'].each do |type, label|
       tag_type = TagType.find_or_create_by(label: type)
