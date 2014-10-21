@@ -1,5 +1,5 @@
 require "sinatra/activerecord/rake"
-require "./ernest"
+require "./lib/ernest"
 
 require 'rspec/core/rake_task'
 

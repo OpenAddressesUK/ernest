@@ -6,7 +6,7 @@ require 'factory_girl'
 
 ENV['RACK_ENV'] = 'test'
 
-require File.expand_path '../../ernest.rb', __FILE__
+require File.expand_path '../../lib/ernest.rb', __FILE__
 
 require 'simplecov'
 SimpleCov.start
