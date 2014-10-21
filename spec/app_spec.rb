@@ -1,0 +1,36 @@
+require 'spec_helper'
+
+describe Ernest do
+
+  it "should create an address" do
+    body = {
+      address: {
+        building_no: "3",
+        street: "Hobbit Drive",
+        locality: "Hobbitton",
+        post_town: "The Shire",
+        postcode: "ABC 123"
+      },
+      provenance: {
+        executed_at: "2014-01-01T13:00:00Z",
+        url: "http://www.example.com"
+      }
+    }
+
+    post 'address', body.to_json
+
+    expect(last_response.status).to eq(201)
+
+    expect(Address.count).to eq(1)
+
+    address = Address.last
+
+    expect(address.tags.count).to eq(5)
+    expect(address.postcode.label).to eq('ABC 123')
+    expect(address.post_town.label).to eq('The Shire')
+    expect(address.locality.label).to eq('Hobbitton')
+    expect(address.street.label).to eq('Hobbit Drive')
+    expect(address.building_no.label).to eq('3')
+  end
+
+end

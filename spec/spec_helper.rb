@@ -15,7 +15,7 @@ ActiveRecord::Base.logger.level = 1
 
 module RSpecMixin
   include Rack::Test::Methods
-  def app() Sinatra::Application end
+  def app() Ernest end
 end
 
 RSpec.configure do |config|
