@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Tag" do
+describe Tag do
 
   it "should allow creation without geo objects" do
     tag = FactoryGirl.create(:tag)
@@ -20,10 +20,6 @@ describe "Tag" do
     expect(tag.area.to_s).to eq("POLYGON ((1.0 2.0, 1.0 4.0, 3.0 4.0, 1.0 2.0))")
   end
 
-  it "should create an associated activity" do
-    tag = FactoryGirl.create(:tag)
-
-    expect(tag.activity).not_to be_nil
-  end
+  it_behaves_like "Provenanceable"
 
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Address" do
+describe Address do
 
   it "should create a basic address" do
     address = FactoryGirl.create(:address)
@@ -13,10 +13,6 @@ describe "Address" do
     expect(address.building_no.label).to eq('3')
   end
 
-  it "should create an associated activity" do
-    address = FactoryGirl.create(:address)
-
-    expect(address.activity).not_to be_nil
-  end
+  it_behaves_like "Provenanceable"
 
 end

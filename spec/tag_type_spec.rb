@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "TagType" do
+describe TagType do
 
   it "allows valid labels" do
     tag_type = FactoryGirl.create(:tag_type)
