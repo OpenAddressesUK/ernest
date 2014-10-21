@@ -2,23 +2,8 @@ require 'spec_helper'
 
 describe "Address" do
 
-  before do
-    @postcode = TagType.create(label: "postcode")
-    @town = TagType.create(label: "post_town")
-    @locality = TagType.create(label: "locality")
-    @street = TagType.create(label: "street")
-    @building_no = TagType.create(label: "building_no")
-  end
-
   it "should create a basic address" do
-    address = Address.new
-    address.tags << Tag.create(label: "ABC 123", tag_type: @postcode)
-    address.tags << Tag.create(label: "The Shire", tag_type: @town)
-    address.tags << Tag.create(label: "Hobbitton", tag_type: @locality)
-    address.tags << Tag.create(label: "Hobbit Drive", tag_type: @street)
-    address.tags << Tag.create(label: "3", tag_type: @building_no)
-
-    address.save
+    address = FactoryGirl.create(:address)
 
     expect(address.tags.count).to eq(5)
     expect(address.postcode.label).to eq('ABC 123')
@@ -29,14 +14,7 @@ describe "Address" do
   end
 
   it "should create an associated activity" do
-    address = Address.new
-    address.tags << Tag.create(label: "ABC 123", tag_type: @postcode)
-    address.tags << Tag.create(label: "The Shire", tag_type: @town)
-    address.tags << Tag.create(label: "Hobbitton", tag_type: @locality)
-    address.tags << Tag.create(label: "Hobbit Drive", tag_type: @street)
-    address.tags << Tag.create(label: "3", tag_type: @building_no)
-
-    address.save
+    address = FactoryGirl.create(:address)
 
     expect(address.activity).not_to be_nil
   end

@@ -2,6 +2,7 @@
 require 'rack/test'
 require 'pry'
 require 'database_cleaner'
+require 'factory_girl'
 
 ENV['RACK_ENV'] = 'test'
 
@@ -20,6 +21,8 @@ end
 RSpec.configure do |config|
 
   config.include RSpecMixin
+  config.include FactoryGirl::Syntax::Methods
+  FactoryGirl.find_definitions
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
