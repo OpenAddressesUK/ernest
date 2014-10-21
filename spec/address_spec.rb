@@ -28,4 +28,17 @@ describe "Address" do
     expect(address.building_no.label).to eq('3')
   end
 
+  it "should create an associated activity" do
+    address = Address.new
+    address.tags << Tag.create(label: "ABC 123", tag_type: @postcode)
+    address.tags << Tag.create(label: "The Shire", tag_type: @town)
+    address.tags << Tag.create(label: "Hobbitton", tag_type: @locality)
+    address.tags << Tag.create(label: "Hobbit Drive", tag_type: @street)
+    address.tags << Tag.create(label: "3", tag_type: @building_no)
+
+    address.save
+
+    expect(address.activity).not_to be_nil
+  end
+
 end

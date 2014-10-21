@@ -20,4 +20,10 @@ describe "Tag" do
     expect(tag.area.to_s).to eq("POLYGON ((1.0 2.0, 1.0 4.0, 3.0 4.0, 1.0 2.0))")
   end
 
+  it "should create an associated activity" do
+    tag = Tag.create(label: "Bigtown")
+
+    expect(tag.activity).not_to be_nil
+  end
+
 end

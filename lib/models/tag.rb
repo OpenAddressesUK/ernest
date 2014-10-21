@@ -1,7 +1,8 @@
 class Tag < ActiveRecord::Base
-  belongs_to :tag_type
 
-  belongs_to :activity
+  include Provenanceable
+
+  belongs_to :tag_type
 
   # We can't have null spatial columns
   before_create :set_defaults

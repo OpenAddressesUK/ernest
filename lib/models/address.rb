@@ -1,7 +1,8 @@
 class Address < ActiveRecord::Base
-  has_and_belongs_to_many :tags
 
-  belongs_to :activity
+  include Provenanceable
+
+  has_and_belongs_to_many :tags
 
   TagType::ALLOWED_LABELS.each do |label|
     define_method(label) do
