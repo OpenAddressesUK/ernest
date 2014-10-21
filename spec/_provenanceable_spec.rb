@@ -15,4 +15,12 @@ shared_examples_for "Provenanceable" do
     expect(source.activity.executed_at).to eq(time)
   end
 
+  it "allows derivations to be set" do
+    source = FactoryGirl.create(described_class, activity_attributes: { derivations: [
+        FactoryGirl.create(:derivation)
+      ] })
+
+    expect(source.activity.derivations.count).to eq(1)
+  end
+
 end
