@@ -1,8 +1,12 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'require_all'
+require 'resque'
+require 'dotenv'
 
 require_rel '/models'
+Dotenv.load
+Resque.redis = ENV['REDIS_TOGO_URL']
 
 class Ernest < Sinatra::Base
 
