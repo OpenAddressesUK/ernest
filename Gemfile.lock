@@ -72,7 +72,6 @@ GEM
       activerecord (>= 3.2)
       sinatra (~> 1.0)
     slop (3.6.0)
-    sqlite3 (1.3.9)
     thread_safe (0.3.4)
     tilt (1.4.1)
     tzinfo (1.2.2)
@@ -94,4 +93,3 @@ DEPENDENCIES
   simplecov
   sinatra
   sinatra-activerecord
-  sqlite3

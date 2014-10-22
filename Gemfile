@@ -1,11 +1,10 @@
-ruby '2.1.0'
+ruby '2.1.3'
 #ruby-gemset=ernest-marples
 
 source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'sinatra-activerecord'
-gem 'sqlite3'
 gem 'rake'
 gem 'mysql2'
 gem 'activerecord-mysql2spatial-adapter'
