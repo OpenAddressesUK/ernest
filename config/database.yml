@@ -17,3 +17,12 @@ test:
   username: root
   password:
   socket: /tmp/mysql.sock
+
+production:
+  adapter: mysql2spatial
+  encoding: utf8
+  database: <%= ENV['DATABASE_NAME'] %>
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
