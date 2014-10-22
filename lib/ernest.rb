@@ -42,6 +42,10 @@ class Ernest < Sinatra::Base
     end
   end
 
+  get '/ulrich' do
+    "<img src='http://i.telegraph.co.uk/multimedia/archive/02048/carlos1_2048407c.jpg'>"
+  end
+
   private
 
     def create_provenance(provenance)
