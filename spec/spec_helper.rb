@@ -3,6 +3,7 @@ require 'rack/test'
 require 'pry'
 require 'database_cleaner'
 require 'factory_girl'
+require 'resque_spec'
 
 ENV['RACK_ENV'] = 'test'
 
@@ -30,6 +31,7 @@ RSpec.configure do |config|
   end
 
   config.around(:each) do |example|
+    ResqueSpec.reset!
     DatabaseCleaner.cleaning do
       example.run
     end
