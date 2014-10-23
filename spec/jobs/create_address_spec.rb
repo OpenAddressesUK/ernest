@@ -6,10 +6,10 @@ describe CreateAddress do
     @user = FactoryGirl.create(:user)
     @body = {
       address: {
-        building_no: "3",
+        paon: "3",
         street: "Hobbit Drive",
         locality: "Hobbitton",
-        post_town: "The Shire",
+        town: "The Shire",
         postcode: "ABC 123"
       },
       provenance: {
@@ -28,10 +28,10 @@ describe CreateAddress do
 
     expect(address.tags.count).to eq(5)
     expect(address.postcode.label).to eq('ABC 123')
-    expect(address.post_town.label).to eq('The Shire')
+    expect(address.town.label).to eq('The Shire')
     expect(address.locality.label).to eq('Hobbitton')
     expect(address.street.label).to eq('Hobbit Drive')
-    expect(address.building_no.label).to eq('3')
+    expect(address.paon.label).to eq('3')
   end
 
   it "should apply a user" do

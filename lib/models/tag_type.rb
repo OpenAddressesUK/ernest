@@ -1,20 +1,11 @@
 class TagType < ActiveRecord::Base
 
   ALLOWED_LABELS = [
-    'organisation',
-    'department',
-    'po_box',
-    'sub_building_name',
-    'sub_building_no',
-    'building_name',
-    'building_no',
-    'dependent_street',
+    'soan',
+    'paon',
     'street',
-    'double_dependent_locality',
-    'dependent_locality',
     'locality',
-    'post_town',
-    'county',
+    'town',
     'postcode',
     'country'
   ]
