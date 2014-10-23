@@ -4,12 +4,22 @@ sudo: false
 rvm:
 - 2.1.3
 before_script:
-  - bundle exec rake db:create && bundle exec rake db:migrate
+- bundle exec rake db:create && bundle exec rake db:migrate
 notifications:
   irc:
     channels:
     - irc.freenode.net#openaddresses
     template:
-    - ! '%{repository} %{branch} - %{message} %{build_url}'
+    - "%{repository} %{branch} - %{message} %{build_url}"
     on_success: change
     on_failure: always
+deploy:
+  provider: heroku
+  strategy: api
+  api_key:
+    secure: OJbpmEllpiolSqG5eB1hqgRTe4/w9F9njXlmUTsvWC7uBpff/63KJDKDPM0px0PzERlo5bU47ifwnhSRTEz/ObbMd9gjzafTDskIWY4qFumN3Eufu6fgmTC23ztroUjNQWD7miOLq8JH3erPME+4okSRIULMMrchmEzkjmqmHNU=
+  app: shrouded-caverns-1022
+  run:
+  - "rake db:migrate"
+  on:
+    repo: OpenAddressesUK/ernest

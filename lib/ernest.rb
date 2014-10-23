@@ -34,5 +34,4 @@ class Ernest < Sinatra::Base
 
     return 202
   end
-
 end
