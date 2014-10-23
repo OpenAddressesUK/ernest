@@ -28,6 +28,9 @@ GEM
     dotenv-deployment (0.0.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     json (1.8.1)
     kgio (2.9.2)
@@ -35,6 +38,7 @@ GEM
     minitest (5.4.2)
     mono_logger (1.1.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     mysql2 (0.3.16)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -47,6 +51,10 @@ GEM
       rack (>= 1.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    raygun4ruby (1.1.4)
+      httparty (~> 0.11)
+      json
+      rack
     redis (3.1.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
@@ -115,6 +123,7 @@ DEPENDENCIES
   pry
   rack-test
   rake
+  raygun4ruby
   require_all
   resque
   resque_spec
