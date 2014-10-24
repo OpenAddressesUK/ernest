@@ -22,8 +22,7 @@ namespace :resque do
         config.enable_reporting = true
       end
 
-      Resque::Failure::Multiple.classes = [Resque::Failure::Redis, Resque::Failure::Raygun]
-      Resque::Failure.backend = Resque::Failure::Multiple
+      Resque::Failure.backend = Resque::Failure::Raygun
     end
 
   end
