@@ -3,7 +3,7 @@ require 'rack/test'
 require 'pry'
 require 'database_cleaner'
 require 'factory_girl'
-require 'resque_spec'
+require "rspec-sidekiq"
 
 ENV['RACK_ENV'] = 'test'
 
@@ -19,6 +19,12 @@ module RSpecMixin
   def app() Ernest end
 end
 
+RSpec::Sidekiq.configure do |config|
+  config.clear_all_enqueued_jobs = true
+  config.enable_terminal_colours = true
+  config.warn_when_jobs_not_processed_by_sidekiq = true
+end
+
 RSpec.configure do |config|
 
   config.include RSpecMixin
@@ -31,7 +37,6 @@ RSpec.configure do |config|
   end
 
   config.around(:each) do |example|
-    ResqueSpec.reset!
     DatabaseCleaner.cleaning do
       example.run
     end

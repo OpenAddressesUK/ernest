@@ -27,14 +27,13 @@ describe Ernest do
   it "should queue a CreateAddress job" do
     post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
-    expect(CreateAddress).to have_queued(JSON.parse(@body), @user.id)
+    expect(CreateAddress).to have_enqueued_job(JSON.parse(@body), @user.id)
     expect(last_response.status).to eq(202)
   end
 
   it "should create an address" do
-    with_resque do
-      post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
-    end
+    Sidekiq::Testing.inline!
+    post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(Address.count).to eq(1)
 
@@ -49,9 +48,8 @@ describe Ernest do
   end
 
   it "should apply a user" do
-    with_resque do
-      post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
-    end
+    Sidekiq::Testing.inline!
+    post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(Address.last.user).to eq(@user)
   end

@@ -20,7 +20,8 @@ describe CreateAddress do
   end
 
   it "should create an address" do
-    CreateAddress.perform(JSON.parse(@body), @user.id)
+    worker = CreateAddress.new
+    worker.perform(JSON.parse(@body), @user.id)
 
     expect(Address.count).to eq(1)
 
@@ -35,7 +36,8 @@ describe CreateAddress do
   end
 
   it "should apply a user" do
-    CreateAddress.perform(JSON.parse(@body), @user.id)
+    worker = CreateAddress.new
+    worker.perform(JSON.parse(@body), @user.id)
 
     expect(Address.last.user).to eq(@user)
   end

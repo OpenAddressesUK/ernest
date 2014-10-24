@@ -1,7 +1,7 @@
 class CreateAddress
-  @queue = :default
+  include Sidekiq::Worker
 
-  def self.perform(body, user_id)
+  def perform(body, user_id)
     provenance = create_provenance(body['provenance'])
     address = Address.new(activity_attributes: provenance)
     address.user = User.find(user_id)
@@ -16,7 +16,7 @@ class CreateAddress
     address.save
   end
 
-  def self.create_provenance(provenance)
+  def create_provenance(provenance)
     {
       executed_at: provenance['executed_at'],
       derivations: [
