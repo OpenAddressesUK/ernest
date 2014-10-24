@@ -43,8 +43,4 @@ class Ernest < Sinatra::Base
     return 202
   end
   
-  get '/test' do
-    raise 'testing'
-  end
-  
 end
