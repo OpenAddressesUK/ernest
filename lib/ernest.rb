@@ -8,6 +8,9 @@ require_rel '/models'
 require_rel '/jobs'
 
 Dotenv.load
+Sidekiq.configure_client do |config|
+  config.redis = { url: ENV['REDIS_TOGO_URL'] }
+end
 Sidekiq.configure_server do |config|
   config.redis = { url: ENV['REDIS_TOGO_URL'] }
 end
