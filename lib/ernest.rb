@@ -12,6 +12,14 @@ Resque.redis = ENV['REDIS_TOGO_URL']
 
 class Ernest < Sinatra::Base
 
+  if ENV["RACK_ENV"]=='production'
+    require 'raygun4ruby'
+    Raygun.setup do |config|
+     config.api_key = ENV["RAYGUN_API_KEY"]
+    end
+    use Raygun::Middleware::RackExceptionInterceptor
+  end
+
   register do
     def check (name)
       condition do
@@ -34,4 +42,9 @@ class Ernest < Sinatra::Base
 
     return 202
   end
+  
+  get '/test' do
+    raise 'testing'
+  end
+  
 end
