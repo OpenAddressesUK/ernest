@@ -89,4 +89,14 @@ describe Ernest do
 
   end
 
+  it "should paginate correctly" do
+    50.times do
+      FactoryGirl.create(:address)
+    end
+
+    get 'addresses', { page: 1 }
+    response = JSON.parse last_response.body
+    expect(response['addresses'].count).to eq 25
+  end
+
 end

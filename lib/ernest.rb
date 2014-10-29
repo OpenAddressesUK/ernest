@@ -4,6 +4,7 @@ require 'require_all'
 require 'sidekiq'
 require 'dotenv'
 require 'json'
+require 'kaminari/sinatra'
 
 require_rel '/models'
 require_rel '/jobs'
@@ -55,7 +56,7 @@ class Ernest < Sinatra::Base
   get '/addresses' do
     addresses = []
 
-    Address.all.each do |a|
+    Address.page(params[:page].to_i).all.each do |a|
       h = {}
       TagType::ALLOWED_LABELS.each do |l|
 
@@ -64,6 +65,8 @@ class Ernest < Sinatra::Base
       addresses << h
     end
 
-    {addresses: addresses}.to_json
+    {
+      addresses: addresses
+    }.to_json
   end
 end
