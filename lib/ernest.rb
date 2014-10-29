@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'require_all'
 require 'sidekiq'
 require 'dotenv'
+require 'json'
 
 require_rel '/models'
 require_rel '/jobs'
@@ -42,6 +43,7 @@ class Ernest < Sinatra::Base
     end
   end
 
+# This should probably be addresses too
   post '/address', check: :valid_key? do
     body = JSON.parse request.body.read
 
@@ -49,5 +51,19 @@ class Ernest < Sinatra::Base
 
     return 202
   end
-  
+
+  get '/addresses' do
+    addresses = []
+
+    Address.all.each do |a|
+      h = {}
+      TagType::ALLOWED_LABELS.each do |l|
+
+        h[l] = a.send(l).try(:label)
+      end
+      addresses << h
+    end
+
+    {addresses: addresses}.to_json
+  end
 end

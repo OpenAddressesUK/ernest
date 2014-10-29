@@ -54,4 +54,39 @@ describe Ernest do
     expect(Address.last.user).to eq(@user)
   end
 
+  it "should return a list of addresses" do
+    20.times do
+      FactoryGirl.create(:address)
+    end
+
+    get 'addresses'
+    response = JSON.parse last_response.body
+    expect(response['addresses'].count).to eq 20
+
+    expect(response['addresses'].first).to eq(
+      {
+        "soan"=>nil,
+        "paon"=>"3",
+        "street"=>"Hobbit Drive",
+        "locality"=>"Hobbitton",
+        "town"=>"The Shire",
+        "postcode"=>"ABC 123",
+        "country"=>nil
+      }
+    )
+
+    expect(response['addresses'].last).to eq(
+      {
+        "soan"=>nil,
+        "paon"=>"3",
+        "street"=>"Hobbit Drive",
+        "locality"=>"Hobbitton",
+        "town"=>"The Shire",
+        "postcode"=>"ABC 123",
+        "country"=>nil
+      }
+    )
+
+  end
+
 end
