@@ -128,6 +128,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-mysql2spatial-adapter
+  activesupport
   database_cleaner
   dotenv
   factory_girl
