@@ -59,13 +59,15 @@ class Ernest < Sinatra::Base
     Address.page(params[:page].to_i).all.each do |a|
       h = {}
       TagType::ALLOWED_LABELS.each do |l|
-
         h[l] = a.send(l).try(:label)
       end
       addresses << h
     end
 
     {
+      current_page: params[:page].to_i,
+      pages: (Address.count / 25.0).ceil,
+      total: Address.count,
       addresses: addresses
     }.to_json
   end
