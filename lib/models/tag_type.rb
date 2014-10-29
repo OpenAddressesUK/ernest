@@ -1,7 +1,7 @@
 class TagType < ActiveRecord::Base
 
   ALLOWED_LABELS = [
-    'soan',
+    'saon',
     'paon',
     'street',
     'locality',

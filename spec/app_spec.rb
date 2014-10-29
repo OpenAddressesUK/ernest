@@ -65,7 +65,7 @@ describe Ernest do
 
     expect(response['addresses'].first).to eq(
       {
-        "soan"=>nil,
+        "saon"=>nil,
         "paon"=>"3",
         "street"=>"Hobbit Drive",
         "locality"=>"Hobbitton",
@@ -77,7 +77,7 @@ describe Ernest do
 
     expect(response['addresses'].last).to eq(
       {
-        "soan"=>nil,
+        "saon"=>nil,
         "paon"=>"3",
         "street"=>"Hobbit Drive",
         "locality"=>"Hobbitton",
