@@ -54,6 +54,8 @@ class Ernest < Sinatra::Base
   end
 
   get '/addresses' do
+    content_type :json
+    
     addresses = []
 
     Address.page(params[:page].to_i).all.each do |a|

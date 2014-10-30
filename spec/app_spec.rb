@@ -61,6 +61,7 @@ describe Ernest do
 
     get 'addresses'
     response = JSON.parse last_response.body
+    expect(last_response.header["Content-Type"]).to eq("application/json")
     expect(response['addresses'].count).to eq 20
 
     expect(response['addresses'].first).to eq(
