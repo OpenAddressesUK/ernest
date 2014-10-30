@@ -55,7 +55,7 @@ class Ernest < Sinatra::Base
 
   get '/addresses' do
     content_type :json
-    
+
     addresses = []
 
     Address.page(params[:page].to_i).all.each do |a|
@@ -67,7 +67,7 @@ class Ernest < Sinatra::Base
     end
 
     {
-      current_page: params[:page].to_i,
+      current_page: (params[:page] || 1).to_i,
       pages: (Address.count / 25.0).ceil,
       total: Address.count,
       addresses: addresses
