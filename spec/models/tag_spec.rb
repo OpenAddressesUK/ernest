@@ -21,5 +21,6 @@ describe Tag do
   end
 
   it_behaves_like "Provenanceable"
+  it_behaves_like "Timestamps"
 
 end
