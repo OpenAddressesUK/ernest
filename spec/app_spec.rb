@@ -5,17 +5,21 @@ describe Ernest do
   before(:all) do
     @user = FactoryGirl.create(:user)
     @body = {
-      address: {
-        paon: "3",
-        street: "Hobbit Drive",
-        locality: "Hobbitton",
-        town: "The Shire",
-        postcode: "ABC 123"
-      },
-      provenance: {
-        executed_at: "2014-01-01T13:00:00Z",
-        url: "http://www.example.com"
-      }
+      addresses: [
+        {
+          address: {
+            paon: "3",
+            street: "Hobbit Drive",
+            locality: "Hobbitton",
+            town: "The Shire",
+            postcode: "ABC 123"
+          },
+          provenance: {
+            executed_at: "2014-01-01T13:00:00Z",
+            url: "http://www.example.com"
+          }
+        }
+      ]
     }.to_json
   end
 
