@@ -44,8 +44,7 @@ class Ernest < Sinatra::Base
     end
   end
 
-# This should probably be addresses too
-  post '/address', check: :valid_key? do
+  post '/addresses', check: :valid_key? do
     body = JSON.parse request.body.read
 
     CreateAddress.perform_async(body, @user.id)

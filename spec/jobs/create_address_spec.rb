@@ -5,17 +5,21 @@ describe CreateAddress do
   before(:all) do
     @user = FactoryGirl.create(:user)
     @body = {
-      address: {
-        paon: "3",
-        street: "Hobbit Drive",
-        locality: "Hobbitton",
-        town: "The Shire",
-        postcode: "ABC 123"
-      },
-      provenance: {
-        executed_at: "2014-01-01T13:00:00Z",
-        url: "http://www.example.com"
-      }
+      addresses: [
+        {
+          address: {
+            paon: "3",
+            street: "Hobbit Drive",
+            locality: "Hobbitton",
+            town: "The Shire",
+            postcode: "ABC 123"
+          },
+          provenance: {
+            executed_at: "2014-01-01T13:00:00Z",
+            url: "http://www.example.com"
+          }
+        }
+      ]
     }.to_json
   end
 
@@ -33,6 +37,58 @@ describe CreateAddress do
     expect(address.locality.label).to eq('Hobbitton')
     expect(address.street.label).to eq('Hobbit Drive')
     expect(address.paon.label).to eq('3')
+  end
+
+  it "should create multiple addresses" do
+    body = {
+      addresses: [
+        {
+          address: {
+            paon: "3",
+            street: "Hobbit Drive",
+            locality: "Hobbitton",
+            town: "The Shire",
+            postcode: "ABC 123"
+          },
+          provenance: {
+            executed_at: "2014-01-01T13:00:00Z",
+            url: "http://www.example.com"
+          }
+        },
+        {
+          address: {
+            paon: "4",
+            street: "Hobbit Drive",
+            locality: "Hobbitton",
+            town: "The Shire",
+            postcode: "ABC 123"
+          },
+          provenance: {
+            executed_at: "2014-01-01T13:00:00Z",
+            url: "http://www.example.com"
+          }
+        },
+        {
+          address: {
+            paon: "5",
+            street: "Hobbit Drive",
+            locality: "Hobbitton",
+            town: "The Shire",
+            postcode: "ABC 123"
+          },
+          provenance: {
+            executed_at: "2014-01-01T13:00:00Z",
+            url: "http://www.example.com"
+          }
+        }
+      ]
+    }.to_json
+
+    worker = CreateAddress.new
+
+    worker.perform(JSON.parse(body), @user.id)
+
+    expect(Address.count).to eq(3)
   end
 
   it "should apply a user" do
