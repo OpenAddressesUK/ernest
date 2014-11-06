@@ -20,12 +20,12 @@ describe Ernest do
   end
 
   it "should return 401 if the API key is incorrect" do
-    post 'address', nil, { "HTTP_ACCESS_TOKEN" => 'thisisobviouslyfake' }
+    post 'addresses', nil, { "HTTP_ACCESS_TOKEN" => 'thisisobviouslyfake' }
     expect(last_response.status).to eq(401)
   end
 
   it "should queue a CreateAddress job" do
-    post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(CreateAddress).to have_enqueued_job(JSON.parse(@body), @user.id)
     expect(last_response.status).to eq(202)
@@ -33,7 +33,7 @@ describe Ernest do
 
   it "should create an address" do
     Sidekiq::Testing.inline!
-    post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(Address.count).to eq(1)
 
@@ -49,7 +49,7 @@ describe Ernest do
 
   it "should apply a user" do
     Sidekiq::Testing.inline!
-    post 'address', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(Address.last.user).to eq(@user)
   end
