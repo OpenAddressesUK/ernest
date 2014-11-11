@@ -64,7 +64,7 @@ Note this down for future reference.
 
 ### Post to Ernest
 
-With the server running, create some JSON in this format:
+With the server running, create some JSON in this format. Within the `provenance` element, you should record the URL where you obtained the data, as well as the date you executed the code.
 
 ```JSON
 {
