@@ -13,4 +13,6 @@ describe Derivation do
     end
   end
 
+  it_behaves_like "Timestamps"
+
 end

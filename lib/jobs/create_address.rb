@@ -3,19 +3,20 @@ class CreateAddress
 
   def perform(body, user_id)
     ActiveRecord::Base.transaction do
+      body['addresses'].each do |a|
+        provenance = create_provenance(a['provenance'])
+        address = Address.new(activity_attributes: provenance)
+        address.user = User.find(user_id)
 
-      provenance = create_provenance(body['provenance'])
-      address = Address.new(activity_attributes: provenance)
-      address.user = User.find(user_id)
+        a['address'].each do |type, label|
+          tag_type = TagType.find_or_create_by(label: type)
+          address.tags << Tag.create(label: label,
+                                      tag_type: tag_type,
+                                      activity_attributes: provenance)
+        end
 
-      body['address'].each do |type, label|
-        tag_type = TagType.find_or_create_by(label: type)
-        address.tags << Tag.create(label: label,
-                                    tag_type: tag_type,
-                                    activity_attributes: provenance)
+        address.save
       end
-
-      address.save
     end
   end
 
