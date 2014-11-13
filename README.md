@@ -66,16 +66,39 @@ Note this down for future reference.
 
 With the server running, create some JSON in this format. Within the `provenance` element, you should record the URL where you obtained the data, as well as the date you executed the code.
 
+You can also optionally pass in geometries for each feature, if you have them. Currently, we only support point data.
+
 ```JSON
 {
   "addresses": [
     {
       "address": {
-        "paon": "3",
-        "street": "Hobbit Drive",
-        "locality": "Hobbitton",
-        "town": "The Shire",
-        "postcode": "ABC 123"
+        "saon": {
+          "name": "Flat 1"
+        },
+        "paon": {
+          "name": 3
+        },
+        "street": {
+          "name": "Hobbit Street",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [125.6, 10.1]
+          },
+        },
+        "locality": {
+          "name": "Hobbiton"
+        },
+        "town": {
+          "name": "The Shire"
+        },
+        "postcode": {
+          "name": "ABC 123",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [125.6, 10.1]
+          }
+        }
       },
       "provenance": {
         "executed_at": "2014-01-01T13:00:00Z",
