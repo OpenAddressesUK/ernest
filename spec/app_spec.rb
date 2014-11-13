@@ -100,25 +100,61 @@ describe Ernest do
 
     expect(response['addresses'].first).to eq(
       {
-        "saon"=>nil,
-        "paon"=>"3",
-        "street"=>"Hobbit Drive",
-        "locality"=>"Hobbitton",
-        "town"=>"The Shire",
-        "postcode"=>"ABC 123",
-        "country"=>nil
+        "saon"=>{
+          "name"=>nil
+        },
+        "paon"=>{
+          "name"=>"3"
+        },
+        "street"=>{
+          "name"=>"Hobbit Drive"
+        },
+        "locality"=>{
+          "name"=>"Hobbitton"
+        },
+        "town"=>{
+          "name"=>"The Shire",
+          "geometry"=>{
+            "type"=>"Point",
+            "coordinates"=>[411754.0, 309250.0]
+          }
+        },
+        "postcode"=>{
+          "name"=>"ABC 123"
+        },
+        "country"=>{
+          "name"=>nil
+        }
       }
     )
 
     expect(response['addresses'].last).to eq(
       {
-        "saon"=>nil,
-        "paon"=>"3",
-        "street"=>"Hobbit Drive",
-        "locality"=>"Hobbitton",
-        "town"=>"The Shire",
-        "postcode"=>"ABC 123",
-        "country"=>nil
+        "saon"=>{
+          "name"=>nil
+        },
+        "paon"=>{
+          "name"=>"3"
+        },
+        "street"=>{
+          "name"=>"Hobbit Drive"
+        },
+        "locality"=>{
+          "name"=>"Hobbitton"
+        },
+        "town"=>{
+          "name"=>"The Shire",
+          "geometry"=>{
+            "type"=>"Point",
+            "coordinates"=>[411754.0, 309250.0]
+          }
+        },
+        "postcode"=>{
+          "name"=>"ABC 123"
+        },
+        "country"=>{
+          "name"=>nil
+        }
       }
     )
 
