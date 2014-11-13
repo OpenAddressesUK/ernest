@@ -8,11 +8,21 @@ describe CreateAddress do
       addresses: [
         {
           address: {
-            paon: "3",
-            street: "Hobbit Drive",
-            locality: "Hobbitton",
-            town: "The Shire",
-            postcode: "ABC 123"
+            paon: {
+              name: "3"
+            },
+            street: {
+              name: "Hobbit Drive"
+            },
+            locality: {
+              name: "Hobbitton"
+            },
+            town: {
+              name: "The Shire"
+            },
+            postcode: {
+              name: "ABC 123"
+            }
           },
           provenance: {
             executed_at: "2014-01-01T13:00:00Z",
@@ -39,16 +49,47 @@ describe CreateAddress do
     expect(address.paon.label).to eq('3')
   end
 
+  it "should create an address with geodata" do
+    worker = CreateAddress.new
+    body = JSON.parse(@body)
+    body['addresses'].first['address']['street']['geometry'] = {
+      "type" => "Point",
+      "coordinates" => [
+        179645, 529090
+      ]
+    }
+
+    worker.perform(body, @user.id)
+
+    expect(Address.count).to eq(1)
+
+    address = Address.last
+
+    expect(address.street.label).to eq('Hobbit Drive')
+    expect(address.street.point.to_s).to eq("POINT (179645.0 529090.0)")
+    expect(address.town.point.to_s).to eq("POINT (0.0 0.0)")
+  end
+
   it "should create multiple addresses" do
     body = {
       addresses: [
         {
           address: {
-            paon: "3",
-            street: "Hobbit Drive",
-            locality: "Hobbitton",
-            town: "The Shire",
-            postcode: "ABC 123"
+            paon: {
+              name: "3"
+            },
+            street: {
+              name: "Hobbit Drive"
+            },
+            locality: {
+              name: "Hobbitton"
+            },
+            town: {
+              name: "The Shire"
+            },
+            postcode: {
+              name: "ABC 123"
+            }
           },
           provenance: {
             executed_at: "2014-01-01T13:00:00Z",
@@ -57,11 +98,21 @@ describe CreateAddress do
         },
         {
           address: {
-            paon: "4",
-            street: "Hobbit Drive",
-            locality: "Hobbitton",
-            town: "The Shire",
-            postcode: "ABC 123"
+            paon: {
+              name: "3"
+            },
+            street: {
+              name: "Hobbit Drive"
+            },
+            locality: {
+              name: "Hobbitton"
+            },
+            town: {
+              name: "The Shire"
+            },
+            postcode: {
+              name: "ABC 123"
+            }
           },
           provenance: {
             executed_at: "2014-01-01T13:00:00Z",
@@ -70,11 +121,21 @@ describe CreateAddress do
         },
         {
           address: {
-            paon: "5",
-            street: "Hobbit Drive",
-            locality: "Hobbitton",
-            town: "The Shire",
-            postcode: "ABC 123"
+            paon: {
+              name: "3"
+            },
+            street: {
+              name: "Hobbit Drive"
+            },
+            locality: {
+              name: "Hobbitton"
+            },
+            town: {
+              name: "The Shire"
+            },
+            postcode: {
+              name: "ABC 123"
+            }
           },
           provenance: {
             executed_at: "2014-01-01T13:00:00Z",

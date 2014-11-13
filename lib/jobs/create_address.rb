@@ -10,9 +10,11 @@ class CreateAddress
 
         a['address'].each do |type, label|
           tag_type = TagType.find_or_create_by(label: type)
-          address.tags << Tag.create(label: label,
+          point = label["geometry"].nil? ? nil : "POINT (#{label["geometry"]["coordinates"].join(" ")})"
+          address.tags << Tag.create(label: label["name"],
                                       tag_type: tag_type,
-                                      activity_attributes: provenance)
+                                      activity_attributes: provenance,
+                                      point: point)
         end
 
         address.save
