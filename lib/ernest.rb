@@ -39,15 +39,15 @@ class Ernest < Sinatra::Base
 
   helpers do
     def valid_key?
-      @user = User.find_by_api_key(request.env["HTTP_ACCESS_TOKEN"])
-      !@user.nil?
+      @token = request.env["HTTP_ACCESS_TOKEN"]
+      ENV['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
     end
   end
 
   post '/addresses', check: :valid_key? do
     body = JSON.parse request.body.read
 
-    CreateAddress.perform_async(body, @user.id)
+    CreateAddress.perform_async(body, @token)
 
     return 202
   end

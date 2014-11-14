@@ -35,7 +35,7 @@ describe CreateAddress do
 
   it "should create an address" do
     worker = CreateAddress.new
-    worker.perform(JSON.parse(@body), @user.id)
+    worker.perform(JSON.parse(@body), @user.api_key)
 
     expect(Address.count).to eq(1)
 
@@ -59,7 +59,7 @@ describe CreateAddress do
       ]
     }
 
-    worker.perform(body, @user.id)
+    worker.perform(body, @user.api_key)
 
     expect(Address.count).to eq(1)
 
@@ -147,14 +147,14 @@ describe CreateAddress do
 
     worker = CreateAddress.new
 
-    worker.perform(JSON.parse(body), @user.id)
+    worker.perform(JSON.parse(body), @user.api_key)
 
     expect(Address.count).to eq(3)
   end
 
   it "should apply a user" do
     worker = CreateAddress.new
-    worker.perform(JSON.parse(@body), @user.id)
+    worker.perform(JSON.parse(@body), @user.api_key)
 
     expect(Address.last.user).to eq(@user)
   end
