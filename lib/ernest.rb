@@ -55,9 +55,10 @@ class Ernest < Sinatra::Base
   get '/addresses' do
     content_type :json
 
+    page = Address.page(params[:page].to_i)
     addresses = []
 
-    Address.page(params[:page].to_i).all.each do |a|
+    page.each do |a|
       h = {}
       TagType::ALLOWED_LABELS.each do |l|
         h[l] = a.send(l).try(:label)
@@ -67,8 +68,8 @@ class Ernest < Sinatra::Base
 
     {
       current_page: (params[:page] || 1).to_i,
-      pages: (Address.count / 25.0).ceil,
-      total: Address.count,
+      pages: page.total_pages,
+      total: page.total_count,
       addresses: addresses
     }.to_json
   end
