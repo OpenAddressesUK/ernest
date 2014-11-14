@@ -1,12 +1,12 @@
 class CreateAddress
   include Sidekiq::Worker
 
-  def perform(body, user_id)
+  def perform(body, token)
     ActiveRecord::Base.transaction do
       body['addresses'].each do |a|
         provenance = create_provenance(a['provenance'])
         address = Address.new(activity_attributes: provenance)
-        address.user = User.find(user_id)
+        address.user = User.find_by_api_key(token)
 
         a['address'].each do |type, label|
           tag_type = TagType.find_or_create_by(label: type)

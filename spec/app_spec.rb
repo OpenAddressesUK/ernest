@@ -4,6 +4,7 @@ describe Ernest do
 
   before(:all) do
     @user = FactoryGirl.create(:user)
+    ENV['ERNEST_ALLOWED_KEYS'] = @user.api_key
     @body = {
       addresses: [
         {
@@ -41,7 +42,7 @@ describe Ernest do
   it "should queue a CreateAddress job" do
     post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
-    expect(CreateAddress).to have_enqueued_job(JSON.parse(@body), @user.id)
+    expect(CreateAddress).to have_enqueued_job(JSON.parse(@body), @user.api_key)
     expect(last_response.status).to eq(202)
   end
 
