@@ -61,7 +61,14 @@ class Ernest < Sinatra::Base
     page.each do |a|
       h = {}
       TagType::ALLOWED_LABELS.each do |l|
-        h[l] = a.send(l).try(:label)
+        h[l] = {}
+        h[l]["name"] = a.send(l).try(:label)
+        point = a.send(l).try(:point)
+        unless point.nil? || point.to_s == "POINT (0.0 0.0)"
+          h[l]["geometry"] = {}
+          h[l]["geometry"]["type"] = "Point"
+          h[l]["geometry"]["coordinates"] = [point.y, point.x]
+        end
       end
       addresses << h
     end
