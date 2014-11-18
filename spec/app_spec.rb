@@ -39,6 +39,11 @@ describe Ernest do
     expect(last_response.status).to eq(401)
   end
 
+  it "should return 400 if the body is blank" do
+    post 'addresses', nil, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    expect(last_response.status).to eq(400)
+  end
+
   it "should queue a CreateAddress job" do
     post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
