@@ -39,35 +39,47 @@ class Ernest < Sinatra::Base
 
   helpers do
     def valid_key?
-      @user = User.find_by_api_key(request.env["HTTP_ACCESS_TOKEN"])
-      !@user.nil?
+      @token = request.env["HTTP_ACCESS_TOKEN"]
+      ENV['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
     end
   end
 
-# This should probably be addresses too
-  post '/address', check: :valid_key? do
-    body = JSON.parse request.body.read
+  post '/addresses', check: :valid_key? do
+    body = request.body.read
+    return 400 if body.blank?
 
-    CreateAddress.perform_async(body, @user.id)
+    body = JSON.parse body
+
+    CreateAddress.perform_async(body, @token)
 
     return 202
   end
 
   get '/addresses' do
+    content_type :json
+
+    page = Address.page(params[:page].to_i)
     addresses = []
 
-    Address.page(params[:page].to_i).all.each do |a|
+    page.each do |a|
       h = {}
       TagType::ALLOWED_LABELS.each do |l|
-        h[l] = a.send(l).try(:label)
+        h[l] = {}
+        h[l]["name"] = a.send(l).try(:label)
+        point = a.send(l).try(:point)
+        unless point.nil? || point.to_s == "POINT (0.0 0.0)"
+          h[l]["geometry"] = {}
+          h[l]["geometry"]["type"] = "Point"
+          h[l]["geometry"]["coordinates"] = [point.y, point.x]
+        end
       end
       addresses << h
     end
 
     {
-      current_page: params[:page].to_i,
-      pages: (Address.count / 25.0).ceil,
-      total: Address.count,
+      current_page: (params[:page] || 1).to_i,
+      pages: page.total_pages,
+      total: page.total_count,
       addresses: addresses
     }.to_json
   end

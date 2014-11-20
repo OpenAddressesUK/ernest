@@ -14,4 +14,5 @@ describe TagType do
     expect(tag_type.errors.messages[:label]).to include("rubbish is not a valid label")
   end
 
+  it_behaves_like "Timestamps"
 end

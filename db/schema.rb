@@ -11,45 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021173212) do
+ActiveRecord::Schema.define(version: 20141120145125) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "addresses", force: true do |t|
-    t.integer "activity_id"
-    t.integer "user_id"
+    t.integer  "activity_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "addresses_tags", id: false, force: true do |t|
-    t.integer "address_id"
-    t.integer "tag_id"
+    t.integer  "address_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
+  add_index "addresses_tags", ["address_id", "tag_id"], :name => "index_addresses_tags_on_address_id_and_tag_id"
+  add_index "addresses_tags", ["address_id"], :name => "index_addresses_tags_on_address_id"
+  add_index "addresses_tags", ["tag_id"], :name => "index_addresses_tags_on_tag_id"
+
   create_table "derivations", force: true do |t|
-    t.integer "entity_id"
-    t.string  "entity_type"
-    t.integer "activity_id"
+    t.integer  "entity_id"
+    t.string   "entity_type"
+    t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sources", force: true do |t|
-    t.string  "url"
-    t.integer "activity_id"
+    t.string   "url"
+    t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tag_types", force: true do |t|
-    t.string "label"
-    t.string "description"
+    t.string   "label"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tags", force: true do |t|
-    t.string  "label"
-    t.spatial "point",       limit: {:type=>"point"},       null: false
-    t.spatial "line",        limit: {:type=>"line_string"}, null: false
-    t.spatial "area",        limit: {:type=>"geometry"},    null: false
-    t.integer "tag_type_id"
-    t.integer "activity_id"
+    t.string   "label"
+    t.spatial  "point",       limit: {:type=>"point"},       null: false
+    t.spatial  "line",        limit: {:type=>"line_string"}, null: false
+    t.spatial  "area",        limit: {:type=>"geometry"},    null: false
+    t.integer  "tag_type_id"
+    t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tags", ["area"], :name => "index_tags_on_area", :spatial => true
