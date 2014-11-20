@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106164319) do
+ActiveRecord::Schema.define(version: 20141120145125) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20141106164319) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "addresses_tags", ["address_id", "tag_id"], :name => "index_addresses_tags_on_address_id_and_tag_id"
+  add_index "addresses_tags", ["address_id"], :name => "index_addresses_tags_on_address_id"
+  add_index "addresses_tags", ["tag_id"], :name => "index_addresses_tags_on_tag_id"
 
   create_table "derivations", force: true do |t|
     t.integer  "entity_id"
