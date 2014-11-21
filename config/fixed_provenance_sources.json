@@ -1,0 +1,48 @@
+[
+  {
+    "type": "Source",
+    "description_url": "http://download.companieshouse.gov.uk/en_output.html",
+    "url": [
+      "http://download.companieshouse.gov.uk/BasicCompanyData-2014-11-01-part1_5.zip",
+      "http://download.companieshouse.gov.uk/BasicCompanyData-2014-11-01-part2_5.zip",
+      "http://download.companieshouse.gov.uk/BasicCompanyData-2014-11-01-part3_5.zip",
+      "http://download.companieshouse.gov.uk/BasicCompanyData-2014-11-01-part4_5.zip",
+      "http://download.companieshouse.gov.uk/BasicCompanyData-2014-11-01-part5_5.zip"
+    ],
+    "name": "Companies House's \"Free Company Data Product\"",
+    "executed_at": "2014-11-19T09:30:00Z",
+    "processing_scripts": "https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_download.py"
+  },
+  {
+    "type": "Source",
+    "name": "Ordnance Survey's \"Locator\" open data product",
+    "description_url": "http://www.ordnancesurvey.co.uk/business-and-government/products/os-locator.html",
+    "url": [
+      "http://openaddressesuk.github.io/OS_Locator/OS_Locator2014_2_OPEN_xaa.txt", 
+      "http://openaddressesuk.github.io/OS_Locator/OS_Locator2014_2_OPEN_xab.txt", 
+      "http://openaddressesuk.github.io/OS_Locator/OS_Locator2014_2_OPEN_xac.txt", 
+      "http://openaddressesuk.github.io/OS_Locator/OS_Locator2014_2_OPEN_xad.txt"
+    ],
+    "executed_at": "2014-11-19T09:30:00Z",
+    "processing_scripts": "https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/OS_Locator_download.py"
+  },
+  {
+    "type": "Source",
+    "name": "Wikipedia",
+    "url": [
+      "http://en.wikipedia.org/wiki/List_of_post_towns_in_the_United_Kingdom"
+    ],
+    "executed_at": "2014-11-19T09:30:00Z",
+    "processing_scripts": "https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/OA_Posttowns.py"
+  },
+  {
+    "type": "Source",
+    "description_url": "http://www.ons.gov.uk/ons/guide-method/geography/products/postcode-directories/-nspp-/index.html",
+    "name": "Office for National Statistics' \"ONS Postcode Directory (ONSPD)\" open data product",
+    "url": [
+      "https://geoportal.statistics.gov.uk/Docs/PostCodes/ONSPD_AUG_2014_csv.zip"
+    ],
+    "executed_at": "2014-11-19T09:30:00Z",
+    "processing_scripts": "https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/ONSPD_download.py"
+  }
+]

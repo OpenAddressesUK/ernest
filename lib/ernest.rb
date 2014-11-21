@@ -73,10 +73,12 @@ class Ernest < Sinatra::Base
           h[l]["geometry"]["coordinates"] = [point.y, point.x]
         end
       end
+      fixed_provenance_sources = JSON.parse(File.read('config/fixed_provenance_sources.json'))
       h['provenance'] = {
         activity: {
+          processing_script: "https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_Bulk_Extractor.py",
           executed_at: a.activity.executed_at,
-          derived_from: a.activity.derivations.map { |d| { type: d.entity_type, url: d.entity.url } }
+          derived_from: fixed_provenance_sources
         }
       }
       addresses << h

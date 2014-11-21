@@ -173,21 +173,8 @@ describe Ernest do
     get 'addresses'
     response = JSON.parse last_response.body
 
-    expect(response['addresses'].last).to include(
-      {
-        "provenance" => {
-          "activity" => {
-          "executed_at" => "2014-01-01T11:00:00.000Z",
-            "derived_from" => [
-              {
-              "type" => "Source",
-              "url" => "http://example.com"
-              }
-            ]
-          }
-        }
-      }
-    )
+    expect(response['addresses'].last["provenance"]["activity"]["processing_script"]).to eq("https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_Bulk_Extractor.py")
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].length).to be(4)
 
     Timecop.return
   end
