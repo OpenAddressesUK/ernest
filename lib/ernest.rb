@@ -73,6 +73,12 @@ class Ernest < Sinatra::Base
           h[l]["geometry"]["coordinates"] = [point.y, point.x]
         end
       end
+      h['provenance'] = {
+        activity: {
+          executed_at: a.activity.executed_at,
+          derived_from: a.activity.derivations.map { |d| { type: d.entity_type, url: d.entity.url } }
+        }
+      }
       addresses << h
     end
 

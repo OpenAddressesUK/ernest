@@ -4,6 +4,7 @@ require 'pry'
 require 'database_cleaner'
 require 'factory_girl'
 require "rspec-sidekiq"
+require 'timecop'
 
 ENV['RACK_ENV'] = 'test'
 
