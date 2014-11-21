@@ -104,7 +104,7 @@ describe Ernest do
     expect(last_response.header["Content-Type"]).to eq("application/json")
     expect(response['addresses'].count).to eq 20
 
-    expect(response['addresses'].first).to eq(
+    expect(response['addresses'].first).to include(
       {
         "saon"=>{
           "name"=>nil
@@ -134,7 +134,7 @@ describe Ernest do
       }
     )
 
-    expect(response['addresses'].last).to eq(
+    expect(response['addresses'].last).to include(
       {
         "saon"=>{
           "name"=>nil
@@ -164,6 +164,32 @@ describe Ernest do
       }
     )
 
+  end
+
+  it "should include provenance information" do
+    Timecop.freeze("2014-01-01T11:00:00.000Z")
+    FactoryGirl.create(:address)
+
+    get 'addresses'
+    response = JSON.parse last_response.body
+
+    expect(response['addresses'].last).to include(
+      {
+        "provenance" => {
+          "activity" => {
+          "executed_at" => "2014-01-01T11:00:00.000Z",
+            "derived_from" => [
+              {
+              "type" => "Source",
+              "url" => "http://example.com"
+              }
+            ]
+          }
+        }
+      }
+    )
+
+    Timecop.return
   end
 
   it "should paginate correctly" do
