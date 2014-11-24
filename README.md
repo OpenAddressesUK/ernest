@@ -5,9 +5,8 @@
 
 # Ernest
 
-![](http://www.ernestmarples.com/images/go.jpg)
-
-Ernest is the 'master' database for  OpenAddresses. Registered users can post addresses via the API, together with provenance information, saying how the address was generated.
+This repository is about Open Addresses' ingestion database (also called "raw database") and APIs software component, or "Ernest", named after Ernest Marples, [postmaster general at the time of the of postcodes in the UK](http://en.wikipedia.org/wiki/Ernest_Marples).
+Ernest is part of the solution Open Addresses deployed for the Alpha stage of our services. Read about Ernest [here](http://openaddressesuk.org/docs) or learn about Open Addresses in general [here](http://openaddressesuk.org).
 
 ## Dependencies
 
@@ -122,3 +121,6 @@ You should get a `202 Accepted` HTTP response, and your running worker should pr
 ### Listing addresses
 
 You can see your newly added address at `http://localhost:9292/addresses`
+
+##Licence
+![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png "Creative Commons License") This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
