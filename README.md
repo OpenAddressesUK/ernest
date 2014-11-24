@@ -5,7 +5,7 @@
 
 # Ernest
 
-This repository is about Open Addresses' ingestion database (also called "raw database") and APIs software component, or "Ernest", named after Ernest Marples, [postmaster general at the time of the introduction of postcodes in the UK](http://en.wikipedia.org/wiki/Ernest_Marples).
+This repository is about Open Addresses' *Ingester* software component, including its database (also called "raw database" to distinguish it from the one used for publishing) and APIs. It is named "Ernest", after Ernest Marples who was [postmaster general at the time of the introduction of postcodes in the UK](http://en.wikipedia.org/wiki/Ernest_Marples).
 Ernest is part of the solution Open Addresses deployed for the Alpha stage of our services. Read about Ernest [here](http://openaddressesuk.org/docs) or learn about Open Addresses in general [here](http://openaddressesuk.org).
 
 ## Dependencies
