@@ -123,4 +123,4 @@ You should get a `202 Accepted` HTTP response, and your running worker should pr
 You can see your newly added address at `http://localhost:9292/addresses`
 
 ##Licence
-![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png "Creative Commons License") This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+This code is open source under the MIT license. See the LICENSE.md file for full details.
