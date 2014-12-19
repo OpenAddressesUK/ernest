@@ -48,7 +48,11 @@ class Ernest < Sinatra::Base
     body = request.body.read
     return 400 if body.blank?
 
-    body = JSON.parse body
+    begin
+      body = JSON.parse body
+    rescue JSON::ParserError
+      return 400
+    end
 
     CreateAddress.perform_async(body, @token)
 

@@ -40,7 +40,13 @@ describe Ernest do
   end
 
   it "should return 400 if the body is blank" do
-    post 'addresses', nil, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    post 'addresses', "", { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    expect(last_response.status).to eq(400)
+  end
+
+  it "should return 400 if the json is bad" do
+    body = JSON.parse(@body)
+    post 'addresses', body[0..-4], { "HTTP_ACCESS_TOKEN" => @user.api_key }
     expect(last_response.status).to eq(400)
   end
 
