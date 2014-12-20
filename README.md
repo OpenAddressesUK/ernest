@@ -108,7 +108,7 @@ You can also optionally pass in geometries for each feature, if you have them. C
 }
 ```
 
-The `"addreses"` array can contain any number of addresses.
+The `"addresses"` array can contain any number of addresses.
 
 You can then `POST` your payload to the app like so (assuming your server is running at http://localhost:9292/)
 
