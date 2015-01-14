@@ -242,4 +242,10 @@ describe Ernest do
     expect(response['addresses'].count).to eq 5
   end
 
+  it "returns 400 if date format is incorrect" do
+    get 'addresses', { updated_since: "Ed Balls" }
+
+    expect(last_response.status).to eq(400)
+  end
+
 end

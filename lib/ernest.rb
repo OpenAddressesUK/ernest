@@ -63,6 +63,7 @@ class Ernest < Sinatra::Base
     content_type :json
 
     if params[:updated_since]
+      return 400 if !params[:updated_since].match(/[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\+[0-9]{4}/)
       address = Address.where('updated_at >= ?', params[:updated_since])
     else
       address = Address.all
@@ -74,13 +75,13 @@ class Ernest < Sinatra::Base
     page.each do |a|
       addresses << address_data(a)
     end
-    
+
     {
       current_page: (params[:page] || 1).to_i,
       pages: page.total_pages,
       total: page.total_count,
       addresses: addresses
-    }.to_json    
+    }.to_json
   end
 
   get '/addresses/:id' do
@@ -88,7 +89,7 @@ class Ernest < Sinatra::Base
     a = Address.find(params[:id])
     address_data(a).to_json
   end
-      
+
   def address_data(a)
     h = {}
     h["url"] = "http://ernest.openaddressesuk.org/addresses/#{a.id}"
@@ -112,5 +113,5 @@ class Ernest < Sinatra::Base
     }
     h
   end
-  
+
 end
