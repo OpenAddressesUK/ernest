@@ -5,9 +5,8 @@
 
 # Ernest
 
-![](http://www.ernestmarples.com/images/go.jpg)
-
-Ernest is the 'master' database for  OpenAddresses. Registered users can post addresses via the API, together with provenance information, saying how the address was generated.
+This repository is about Open Addresses' *Ingester* software component, including its database (also called "raw database" to distinguish it from the one used for publishing) and APIs. It is named "Ernest", after Ernest Marples who was [postmaster general at the time of the introduction of postcodes in the UK](http://en.wikipedia.org/wiki/Ernest_Marples).
+Ernest is part of the solution Open Addresses deployed for the Alpha stage of our services. Read about Ernest [here](http://openaddressesuk.org/docs) or learn about Open Addresses in general [here](http://openaddressesuk.org).
 
 ## Dependencies
 
@@ -109,7 +108,7 @@ You can also optionally pass in geometries for each feature, if you have them. C
 }
 ```
 
-The `"addreses"` array can contain any number of addresses.
+The `"addresses"` array can contain any number of addresses.
 
 You can then `POST` your payload to the app like so (assuming your server is running at http://localhost:9292/)
 
@@ -122,3 +121,6 @@ You should get a `202 Accepted` HTTP response, and your running worker should pr
 ### Listing addresses
 
 You can see your newly added address at `http://localhost:9292/addresses`
+
+##Licence
+This code is open source under the MIT license. See the LICENSE.md file for full details.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120145125) do
+ActiveRecord::Schema.define(version: 20141121115822) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20141120145125) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "derivations", ["activity_id"], :name => "index_derivations_on_activity_id"
 
   create_table "sources", force: true do |t|
     t.string   "url"

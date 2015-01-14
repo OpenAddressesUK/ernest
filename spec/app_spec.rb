@@ -40,7 +40,13 @@ describe Ernest do
   end
 
   it "should return 400 if the body is blank" do
-    post 'addresses', nil, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    post 'addresses', "", { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    expect(last_response.status).to eq(400)
+  end
+
+  it "should return 400 if the json is bad" do
+    body = JSON.parse(@body)
+    post 'addresses', body[0..-4], { "HTTP_ACCESS_TOKEN" => @user.api_key }
     expect(last_response.status).to eq(400)
   end
 
@@ -104,7 +110,7 @@ describe Ernest do
     expect(last_response.header["Content-Type"]).to eq("application/json")
     expect(response['addresses'].count).to eq 20
 
-    expect(response['addresses'].first).to eq(
+    expect(response['addresses'].first).to include(
       {
         "saon"=>{
           "name"=>nil
@@ -134,7 +140,7 @@ describe Ernest do
       }
     )
 
-    expect(response['addresses'].last).to eq(
+    expect(response['addresses'].last).to include(
       {
         "saon"=>{
           "name"=>nil
@@ -164,6 +170,19 @@ describe Ernest do
       }
     )
 
+  end
+
+  it "should include provenance information" do
+    Timecop.freeze("2014-01-01T11:00:00.000Z")
+    FactoryGirl.create(:address)
+
+    get 'addresses'
+    response = JSON.parse last_response.body
+
+    expect(response['addresses'].last["provenance"]["activity"]["processing_script"]).to eq("https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_Bulk_Extractor.py")
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].length).to be(4)
+
+    Timecop.return
   end
 
   it "should paginate correctly" do
