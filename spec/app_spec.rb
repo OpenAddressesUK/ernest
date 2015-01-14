@@ -219,4 +219,33 @@ describe Ernest do
     expect(response['current_page']).to eq 2
   end
 
+  it "should return a list of addresses that have been updated since a certain date" do
+    Timecop.freeze(DateTime.new(2013,1,1))
+
+    5.times do
+      FactoryGirl.create(:address)
+    end
+
+    Timecop.return
+
+    date = DateTime.now
+
+    5.times do
+      FactoryGirl.create(:address)
+    end
+
+    get 'addresses', { updated_since: date.strftime("%Y-%m-%dT%H:%M:%S%z") }
+
+    response = JSON.parse last_response.body
+
+    expect(last_response.header["Content-Type"]).to eq("application/json")
+    expect(response['addresses'].count).to eq 5
+  end
+
+  it "returns 400 if date format is incorrect" do
+    get 'addresses', { updated_since: "Ed Balls" }
+
+    expect(last_response.status).to eq(400)
+  end
+
 end

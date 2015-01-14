@@ -62,19 +62,30 @@ class Ernest < Sinatra::Base
   get '/addresses' do
     content_type :json
 
-    page = Address.page(params[:page].to_i)
+    if params[:updated_since]
+      begin
+        updated = DateTime.parse(params[:updated_since])
+      rescue
+        return 400
+      end
+      address = Address.where('updated_at >= ?', updated)
+    else
+      address = Address.all
+    end
+
+    page = address.page(params[:page].to_i)
     addresses = []
 
     page.each do |a|
       addresses << address_data(a)
     end
-    
+
     {
       current_page: (params[:page] || 1).to_i,
       pages: page.total_pages,
       total: page.total_count,
       addresses: addresses
-    }.to_json    
+    }.to_json
   end
 
   get '/addresses/:id' do
@@ -82,7 +93,7 @@ class Ernest < Sinatra::Base
     a = Address.find(params[:id])
     address_data(a).to_json
   end
-      
+
   def address_data(a)
     h = {}
     h["url"] = "http://ernest.openaddressesuk.org/addresses/#{a.id}"
@@ -106,5 +117,5 @@ class Ernest < Sinatra::Base
     }
     h
   end
-  
+
 end
