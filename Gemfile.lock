@@ -115,6 +115,7 @@ GEM
     slop (3.6.0)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timecop (0.7.1)
     timers (1.1.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -145,4 +146,5 @@ DEPENDENCIES
   simplecov
   sinatra
   sinatra-activerecord
+  timecop
   unicorn
