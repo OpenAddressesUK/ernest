@@ -234,7 +234,7 @@ describe Ernest do
       FactoryGirl.create(:address)
     end
 
-    get 'addresses', { updated_since: date.to_s }
+    get 'addresses', { updated_since: date.strftime("%Y-%m-%dT%H:%M:%S%z") }
 
     response = JSON.parse last_response.body
 
