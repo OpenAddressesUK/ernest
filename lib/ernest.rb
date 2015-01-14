@@ -63,8 +63,12 @@ class Ernest < Sinatra::Base
     content_type :json
 
     if params[:updated_since]
-      return 400 if !params[:updated_since].match(/[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\+[0-9]{4}/)
-      address = Address.where('updated_at >= ?', params[:updated_since])
+      begin
+        updated = DateTime.parse(params[:updated_since])
+      rescue
+        return 400
+      end
+      address = Address.where('updated_at >= ?', updated)
     else
       address = Address.all
     end
