@@ -58,7 +58,13 @@ class Ernest < Sinatra::Base
   get '/addresses' do
     content_type :json
 
-    page = Address.page(params[:page].to_i)
+    if params[:updated_since]
+      address = Address.where('updated_at >= ?', params[:updated_since])
+    else
+      address = Address.all
+    end
+
+    page = address.page(params[:page].to_i)
     addresses = []
 
     page.each do |a|
