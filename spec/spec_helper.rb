@@ -8,7 +8,6 @@ require 'date'
 require 'timecop'
 require 'vcr'
 require 'dotenv'
-require 'ignore_env'
 
 Dotenv.load
 
