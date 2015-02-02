@@ -13,7 +13,7 @@ Dotenv.load
 
 VCR.configure do |config|
   # Automatically filter all secure details that are stored in the environment
-  Dotenv::Environment.new(".env").keys.each do |key|
+  ["IRON_MQ_PROJECT_ID", "IRON_MQ_TOKEN", "IRON_MQ_QUEUE"].each do |key|
     config.filter_sensitive_data("<#{key}>") { ENV[key] }
   end
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
