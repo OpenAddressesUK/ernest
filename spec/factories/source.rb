@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :source do
-    url "http://example.com"
+    input "http://example.com"
     activity { FactoryGirl.create(:activity, derivations: []) }
   end
 
