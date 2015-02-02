@@ -52,19 +52,19 @@ describe ImportAddresses do
     end
   end
 
-  it "picks the correct number of messages from the queue" do
+  it "picks the correct number of messages from the queue", :vcr do
     ImportAddresses.perform
 
     expect(Address.count).to eq(10)
   end
 
-  it "deletes messages from the queue" do
+  it "deletes messages from the queue", :vcr do
     ImportAddresses.perform
 
     expect(ImportAddresses.queue.get).to eq(nil)
   end
 
-  it "generates the correct provenance" do
+  it "generates the correct provenance", :vcr do
     ImportAddresses.perform
 
     activity = Address.first.activity
