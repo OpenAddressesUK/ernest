@@ -1,4 +1,6 @@
 require 'rubygems'
+require 'bundler'
+Bundler.require
 
 ENV['RACK_ENV'] ||= 'development'
 
