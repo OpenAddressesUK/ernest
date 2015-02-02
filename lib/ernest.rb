@@ -107,15 +107,39 @@ class Ernest < Sinatra::Base
         h[l]["geometry"]["coordinates"] = [point.y, point.x]
       end
     end
-    fixed_provenance_sources = JSON.parse(File.read('config/fixed_provenance_sources.json'))
-    h['provenance'] = {
+    if a.activity.executed_at.year == 2014
+      fixed_provenance_sources = JSON.parse(File.read('config/fixed_provenance_sources.json'))
+      h['provenance'] = {
+        activity: {
+          processing_script: "https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_Bulk_Extractor.py",
+          executed_at: a.activity.executed_at,
+          derived_from: fixed_provenance_sources
+        }
+      }
+    else
+      h['provenance'] = get_provenance(a)
+    end
+    h
+  end
+
+  def get_provenance(a)
+    derivations = a.activity.derivations.map do |d|
+      h = {
+        type: d.entity.kind,
+        executed_at: d.entity.activity.executed_at,
+        processing_script: d.entity.activity.processing_script
+      }
+      d.entity.kind == "url" ? h[:urls] = [d.entity.input] : h[:input] = d.entity.input
+      h
+    end
+
+    {
       activity: {
-        processing_script: "https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_Bulk_Extractor.py",
+        processing_script: a.activity.processing_script,
         executed_at: a.activity.executed_at,
-        derived_from: fixed_provenance_sources
+        derived_from: derivations
       }
     }
-    h
   end
 
 end

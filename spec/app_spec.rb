@@ -172,7 +172,7 @@ describe Ernest do
 
   end
 
-  it "should include provenance information" do
+  it "should include static provenance information for old addresses" do
     Timecop.freeze("2014-01-01T11:00:00.000Z")
     FactoryGirl.create(:address)
 
@@ -181,6 +181,25 @@ describe Ernest do
 
     expect(response['addresses'].last["provenance"]["activity"]["processing_script"]).to eq("https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_Bulk_Extractor.py")
     expect(response['addresses'].last["provenance"]["activity"]["derived_from"].length).to be(4)
+
+    Timecop.return
+  end
+
+  it "should generate correct provenance for new stuff" do
+    Timecop.freeze("2015-02-02T11:00:00.000Z")
+
+    entity = FactoryGirl.create(:source, kind: "url", input: "http://foo.bar/baz", activity: FactoryGirl.create(:activity, processing_script: "http://foo.bar"))
+    derivation = FactoryGirl.create(:derivation, entity: entity)
+
+    FactoryGirl.create(:address, activity: FactoryGirl.create(:activity, derivations: [derivation]))
+
+    get 'addresses'
+    response = JSON.parse last_response.body
+
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].count).to eq(1)
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["type"]).to eq("url")
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["processing_script"]).to eq("http://foo.bar")
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["urls"].first).to eq("http://foo.bar/baz")
 
     Timecop.return
   end
