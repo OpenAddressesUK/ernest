@@ -118,7 +118,7 @@ class Ernest < Sinatra::Base
     options[:reason] = body['reason'] if body['reason']
 
     a.validate! body['exists'], options
-
+    return 201
   end
 
   def address_data(a)

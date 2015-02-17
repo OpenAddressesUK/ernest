@@ -10,6 +10,7 @@ describe Ernest do
     post "addresses/#{@address.id}/validations", '{ "exists": true }', { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(@address.activities[0].validations[0].value).to eq 1.0
+    expect(last_response.status).to eq(201)
   end
 
   it "allows rejection of an existing address" do
