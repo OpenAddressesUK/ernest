@@ -31,11 +31,11 @@ class ImportAddresses
   end
 
   def self.ironmq
-    @@ironmq ||= IronMQ::Client.new(token: ENV['IRON_MQ_TOKEN'], project_id: ENV['IRON_MQ_PROJECT_ID'], host: 'mq-aws-eu-west-1.iron.io')
+    @@ironmq ||= IronMQ::Client.new(token: JiffyBag['IRON_MQ_TOKEN'], project_id: JiffyBag['IRON_MQ_PROJECT_ID'], host: 'mq-aws-eu-west-1.iron.io')
   end
 
   def self.queue
-    ironmq.queue(ENV['IRON_MQ_QUEUE'])
+    ironmq.queue(JiffyBag['IRON_MQ_QUEUE'])
   end
 
   def self.create_provenance(provenance)

@@ -8,6 +8,9 @@ module Provenanceable
     accepts_nested_attributes_for :activity
 
     validates :activity, presence: true
+    
+    has_many :derived, class_name: "Derivation", as: :entity
+    
   end
 
 
