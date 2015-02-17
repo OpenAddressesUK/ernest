@@ -1,15 +1,24 @@
+require 'jiffybag'
+JiffyBag.configure %w{
+  RAYGUN_API_KEY
+  IRON_MQ_QUEUE
+  IRON_MQ_TOKEN
+  IRON_MQ_PROJECT_ID
+  ERNEST_ALLOWED_KEYS
+}
+
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'require_all'
 require 'sidekiq'
-require 'dotenv'
 require 'json'
 require 'kaminari/sinatra'
 
 require_rel '/models'
 require_rel '/jobs'
 
-Dotenv.load
+
+
 Sidekiq.configure_client do |config|
   config.redis = { url: ENV['REDIS_TOGO_URL'] }
 end
@@ -20,7 +29,7 @@ end
 require 'raygun4ruby'
 require 'raygun/sidekiq'
 Raygun.setup do |config|
- config.api_key = ENV["RAYGUN_API_KEY"]
+ config.api_key = JiffyBag["RAYGUN_API_KEY"]
 end
 
 class Ernest < Sinatra::Base
@@ -40,19 +49,21 @@ class Ernest < Sinatra::Base
   helpers do
     def valid_key?
       @token = request.env["HTTP_ACCESS_TOKEN"]
-      ENV['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
+      JiffyBag['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
     end
   end
 
   post '/addresses', check: :valid_key? do
-    body = request.body.read
-    return 400 if body.blank?
+#    body = request.body.read
+#    return 400 if body.blank?
 
-    begin
-      body = JSON.parse body
-    rescue JSON::ParserError
-      return 400
-    end
+#    begin
+#      body = JSON.parse body
+#    rescue JSON::ParserError
+#      return 400
+#    end
+    body = json_parse request
+    return 400 if body.nil?
 
     CreateAddress.perform_async(body, @token)
 
@@ -92,6 +103,22 @@ class Ernest < Sinatra::Base
     content_type :json
     a = Address.find(params[:id])
     address_data(a).to_json
+  end
+
+  post '/addresses/:id/validations' do
+    content_type :json
+    a = Address.find(params[:id])
+
+    body = json_parse request
+    return 400 if body.nil?
+
+    options = {}
+    options[:timestamp] = DateTime.parse body['timestamp'] if body['timestamp']
+    options[:attribution] = body['attribution'] if body['attribution']
+    options[:reason] = body['reason'] if body['reason']
+
+    a.validate! body['exists'], options
+
   end
 
   def address_data(a)
@@ -142,4 +169,16 @@ class Ernest < Sinatra::Base
     }
   end
 
+  def json_parse request
+    body = request.body.read
+    return nil if body.blank?
+
+    begin
+      body = JSON.parse body
+    rescue JSON::ParserError
+      return nil
+    end
+
+    body
+  end
 end

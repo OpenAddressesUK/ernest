@@ -1,6 +1,3 @@
-ruby '2.1.3'
-#ruby-gemset=ernest-marples
-
 source 'https://rubygems.org'
 
 gem 'sinatra'
@@ -17,7 +14,7 @@ gem 'simplecov'
 gem 'factory_girl'
 gem 'sidekiq'
 gem 'rspec-sidekiq'
-gem 'dotenv'
+gem 'jiffybag', github: 'theodi/jiffybag'
 gem 'unicorn'
 gem 'raygun4ruby'
 gem 'kaminari'
@@ -27,3 +24,4 @@ gem 'iron_mq'
 gem 'travis'
 gem 'vcr'
 gem 'webmock'
+gem 'guard-rspec'

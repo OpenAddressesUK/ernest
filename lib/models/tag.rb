@@ -1,6 +1,7 @@
 class Tag < ActiveRecord::Base
 
   include Provenanceable
+  include Validatable
 
   belongs_to :tag_type
 
