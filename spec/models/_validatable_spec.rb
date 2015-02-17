@@ -20,12 +20,15 @@ shared_examples_for "Validatable" do
     expect(object.derived[0].activity.validations[0].value).to eq -1.0
   end
   
-  # it "supports validation with optional fields" do
-  #   object = FactoryGirl.create(described_class)
-  # 
-  #   object.validate!(exists: true, attribution: "Made by me", reason: "")
-  # 
-  #   expect(object.activity).not_to be_nil
-  # end
+  it "supports validation with optional fields" do
+    object = FactoryGirl.create(described_class)
+    time = 2.days.ago.to_time
+  
+    object.validate!(true, timestamp: time) # attribution: "Made by me", reason: "Bananas", 
+  
+    validation = object.derived[0].activity.validations[0]
+    expect(validation.activity.executed_at).to be_within(1.seconds).of(time)
+  end
 
 end
+  
