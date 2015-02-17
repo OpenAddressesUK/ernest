@@ -34,21 +34,20 @@ shared_examples_for "Validatable" do
     object = FactoryGirl.create(described_class)
     time = 2.days.ago.to_time
   
-    object.validate!(true, attribution: "Made by me")
+    object.validate!(true, attribution: "James Smith <james@example.com>")
   
     validation = object.derived[0].activity.validations[0]
-    expect(validation.activity.attribution).to eq "Made by me"
+    expect(validation.activity.attribution).to eq "James Smith <james@example.com>"
   end
 
   it "supports validation with reason" do
-    pending
     object = FactoryGirl.create(described_class)
     time = 2.days.ago.to_time
   
-    object.validate!(true, reason: "Bananas")
+    object.validate!(true, reason: "It's been demolished")
   
     validation = object.derived[0].activity.validations[0]
-    expect(validation.activity.reason).to eq "Bananas"
+    expect(validation.reason).to eq "It's been demolished"
   end
 
 end
