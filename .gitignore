@@ -2,3 +2,4 @@
 coverage
 tmp
 dump.rdb
+.env

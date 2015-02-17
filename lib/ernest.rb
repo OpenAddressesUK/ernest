@@ -48,7 +48,11 @@ class Ernest < Sinatra::Base
     body = request.body.read
     return 400 if body.blank?
 
-    body = JSON.parse body
+    begin
+      body = JSON.parse body
+    rescue JSON::ParserError
+      return 400
+    end
 
     CreateAddress.perform_async(body, @token)
 
@@ -58,22 +62,22 @@ class Ernest < Sinatra::Base
   get '/addresses' do
     content_type :json
 
-    page = Address.page(params[:page].to_i)
+    if params[:updated_since]
+      begin
+        updated = DateTime.parse(params[:updated_since])
+      rescue
+        return 400
+      end
+      address = Address.where('updated_at >= ?', updated)
+    else
+      address = Address.all
+    end
+
+    page = address.page(params[:page].to_i)
     addresses = []
 
     page.each do |a|
-      h = {}
-      TagType::ALLOWED_LABELS.each do |l|
-        h[l] = {}
-        h[l]["name"] = a.send(l).try(:label)
-        point = a.send(l).try(:point)
-        unless point.nil? || point.to_s == "POINT (0.0 0.0)"
-          h[l]["geometry"] = {}
-          h[l]["geometry"]["type"] = "Point"
-          h[l]["geometry"]["coordinates"] = [point.y, point.x]
-        end
-      end
-      addresses << h
+      addresses << address_data(a)
     end
 
     {
@@ -83,4 +87,59 @@ class Ernest < Sinatra::Base
       addresses: addresses
     }.to_json
   end
+
+  get '/addresses/:id' do
+    content_type :json
+    a = Address.find(params[:id])
+    address_data(a).to_json
+  end
+
+  def address_data(a)
+    h = {}
+    h["url"] = "http://ernest.openaddressesuk.org/addresses/#{a.id}"
+    TagType::ALLOWED_LABELS.each do |l|
+      h[l] = {}
+      h[l]["name"] = a.send(l).try(:label)
+      point = a.send(l).try(:point)
+      unless point.nil? || point.to_s == "POINT (0.0 0.0)"
+        h[l]["geometry"] = {}
+        h[l]["geometry"]["type"] = "Point"
+        h[l]["geometry"]["coordinates"] = [point.y, point.x]
+      end
+    end
+    if a.activity.executed_at.year == 2014
+      fixed_provenance_sources = JSON.parse(File.read('config/fixed_provenance_sources.json'))
+      h['provenance'] = {
+        activity: {
+          processing_script: "https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_Bulk_Extractor.py",
+          executed_at: a.activity.executed_at,
+          derived_from: fixed_provenance_sources
+        }
+      }
+    else
+      h['provenance'] = get_provenance(a)
+    end
+    h
+  end
+
+  def get_provenance(a)
+    derivations = a.activity.derivations.map do |d|
+      h = {
+        type: d.entity.kind,
+        executed_at: d.entity.activity.executed_at,
+        processing_script: d.entity.activity.processing_script
+      }
+      d.entity.kind == "url" ? h[:urls] = [d.entity.input] : h[:input] = d.entity.input
+      h
+    end
+
+    {
+      activity: {
+        processing_script: a.activity.processing_script,
+        executed_at: a.activity.executed_at,
+        derived_from: derivations
+      }
+    }
+  end
+
 end

@@ -40,7 +40,13 @@ describe Ernest do
   end
 
   it "should return 400 if the body is blank" do
-    post 'addresses', nil, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    post 'addresses', "", { "HTTP_ACCESS_TOKEN" => @user.api_key }
+    expect(last_response.status).to eq(400)
+  end
+
+  it "should return 400 if the json is bad" do
+    body = JSON.parse(@body)
+    post 'addresses', body[0..-4], { "HTTP_ACCESS_TOKEN" => @user.api_key }
     expect(last_response.status).to eq(400)
   end
 
@@ -104,7 +110,7 @@ describe Ernest do
     expect(last_response.header["Content-Type"]).to eq("application/json")
     expect(response['addresses'].count).to eq 20
 
-    expect(response['addresses'].first).to eq(
+    expect(response['addresses'].first).to include(
       {
         "saon"=>{
           "name"=>nil
@@ -134,7 +140,7 @@ describe Ernest do
       }
     )
 
-    expect(response['addresses'].last).to eq(
+    expect(response['addresses'].last).to include(
       {
         "saon"=>{
           "name"=>nil
@@ -164,6 +170,38 @@ describe Ernest do
       }
     )
 
+  end
+
+  it "should include static provenance information for old addresses" do
+    Timecop.freeze("2014-01-01T11:00:00.000Z")
+    FactoryGirl.create(:address)
+
+    get 'addresses'
+    response = JSON.parse last_response.body
+
+    expect(response['addresses'].last["provenance"]["activity"]["processing_script"]).to eq("https://github.com/OpenAddressesUK/common-ETL/blob/efcd9970fc63c12b2f1aef410f87c2dcb4849aa3/CH_Bulk_Extractor.py")
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].length).to be(4)
+
+    Timecop.return
+  end
+
+  it "should generate correct provenance for new stuff" do
+    Timecop.freeze("2015-02-02T11:00:00.000Z")
+
+    entity = FactoryGirl.create(:source, kind: "url", input: "http://foo.bar/baz", activity: FactoryGirl.create(:activity, processing_script: "http://foo.bar"))
+    derivation = FactoryGirl.create(:derivation, entity: entity)
+
+    FactoryGirl.create(:address, activity: FactoryGirl.create(:activity, derivations: [derivation]))
+
+    get 'addresses'
+    response = JSON.parse last_response.body
+
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].count).to eq(1)
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["type"]).to eq("url")
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["processing_script"]).to eq("http://foo.bar")
+    expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["urls"].first).to eq("http://foo.bar/baz")
+
+    Timecop.return
   end
 
   it "should paginate correctly" do
@@ -198,6 +236,35 @@ describe Ernest do
     expect(response['pages']).to eq 3
     expect(response['total']).to eq 55
     expect(response['current_page']).to eq 2
+  end
+
+  it "should return a list of addresses that have been updated since a certain date" do
+    Timecop.freeze(DateTime.new(2013,1,1))
+
+    5.times do
+      FactoryGirl.create(:address)
+    end
+
+    Timecop.return
+
+    date = DateTime.now
+
+    5.times do
+      FactoryGirl.create(:address)
+    end
+
+    get 'addresses', { updated_since: date.strftime("%Y-%m-%dT%H:%M:%S%z") }
+
+    response = JSON.parse last_response.body
+
+    expect(last_response.header["Content-Type"]).to eq("application/json")
+    expect(response['addresses'].count).to eq 5
+  end
+
+  it "returns 400 if date format is incorrect" do
+    get 'addresses', { updated_since: "Ed Balls" }
+
+    expect(last_response.status).to eq(400)
   end
 
 end

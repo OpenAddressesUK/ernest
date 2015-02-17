@@ -26,7 +26,7 @@ class CreateAddress
     {
       executed_at: provenance['executed_at'],
       derivations: [
-        Derivation.create(entity: Source.find_or_create_by(url: provenance['url']))
+        Derivation.create(entity: Source.find_or_create_by(input: provenance['url']))
       ]
     }
   end

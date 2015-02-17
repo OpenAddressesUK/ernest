@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120145125) do
+ActiveRecord::Schema.define(version: 20150202090512) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "processing_script"
   end
 
   create_table "addresses", force: true do |t|
@@ -45,11 +46,14 @@ ActiveRecord::Schema.define(version: 20141120145125) do
     t.datetime "updated_at"
   end
 
+  add_index "derivations", ["activity_id"], :name => "index_derivations_on_activity_id"
+
   create_table "sources", force: true do |t|
-    t.string   "url"
+    t.string   "input"
     t.integer  "activity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "kind"
   end
 
   create_table "tag_types", force: true do |t|
