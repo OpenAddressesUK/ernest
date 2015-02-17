@@ -15,5 +15,6 @@ describe Address do
 
   it_behaves_like "Provenanceable"
   it_behaves_like "Timestamps"
+  it_behaves_like "Validatable"
 
 end

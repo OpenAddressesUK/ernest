@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202090512) do
+ActiveRecord::Schema.define(version: 20150216105500) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
@@ -82,6 +82,11 @@ ActiveRecord::Schema.define(version: 20150202090512) do
     t.string "name"
     t.string "email"
     t.string "api_key"
+  end
+
+  create_table "validations", force: true do |t|
+    t.float   "value",       limit: 24
+    t.integer "activity_id"
   end
 
 end
