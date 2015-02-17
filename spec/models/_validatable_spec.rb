@@ -20,14 +20,35 @@ shared_examples_for "Validatable" do
     expect(object.derived[0].activity.validations[0].value).to eq -1.0
   end
   
-  it "supports validation with optional fields" do
+  it "supports validation with timestamp" do
     object = FactoryGirl.create(described_class)
     time = 2.days.ago.to_time
   
-    object.validate!(true, timestamp: time) # attribution: "Made by me", reason: "Bananas", 
+    object.validate!(true, timestamp: time)
   
     validation = object.derived[0].activity.validations[0]
     expect(validation.activity.executed_at).to be_within(1.seconds).of(time)
+  end
+
+  it "supports validation with attribution" do
+    object = FactoryGirl.create(described_class)
+    time = 2.days.ago.to_time
+  
+    object.validate!(true, attribution: "Made by me")
+  
+    validation = object.derived[0].activity.validations[0]
+    expect(validation.activity.attribution).to eq "Made by me"
+  end
+
+  it "supports validation with reason" do
+    pending
+    object = FactoryGirl.create(described_class)
+    time = 2.days.ago.to_time
+  
+    object.validate!(true, reason: "Bananas")
+  
+    validation = object.derived[0].activity.validations[0]
+    expect(validation.activity.reason).to eq "Bananas"
   end
 
 end
