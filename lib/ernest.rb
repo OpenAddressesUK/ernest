@@ -1,15 +1,24 @@
+require 'jiffybag'
+JiffyBag.configure %w{
+  RAYGUN_API_KEY
+  IRON_MQ_QUEUE
+  IRON_MQ_TOKEN
+  IRON_MQ_PROJECT_ID
+  ERNEST_ALLOWED_KEYS
+}
+
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'require_all'
 require 'sidekiq'
-require 'dotenv'
 require 'json'
 require 'kaminari/sinatra'
 
 require_rel '/models'
 require_rel '/jobs'
 
-Dotenv.load
+
+
 Sidekiq.configure_client do |config|
   config.redis = { url: ENV['REDIS_TOGO_URL'] }
 end
@@ -20,7 +29,7 @@ end
 require 'raygun4ruby'
 require 'raygun/sidekiq'
 Raygun.setup do |config|
- config.api_key = ENV["RAYGUN_API_KEY"]
+ config.api_key = JiffyBag["RAYGUN_API_KEY"]
 end
 
 class Ernest < Sinatra::Base
@@ -40,7 +49,7 @@ class Ernest < Sinatra::Base
   helpers do
     def valid_key?
       @token = request.env["HTTP_ACCESS_TOKEN"]
-      ENV['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
+      JiffyBag['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
     end
   end
 
