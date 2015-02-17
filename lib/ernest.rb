@@ -54,14 +54,16 @@ class Ernest < Sinatra::Base
   end
 
   post '/addresses', check: :valid_key? do
-    body = request.body.read
-    return 400 if body.blank?
+#    body = request.body.read
+#    return 400 if body.blank?
 
-    begin
-      body = JSON.parse body
-    rescue JSON::ParserError
-      return 400
-    end
+#    begin
+#      body = JSON.parse body
+#    rescue JSON::ParserError
+#      return 400
+#    end
+    body = json_parse request
+    return 400 if body.nil?
 
     CreateAddress.perform_async(body, @token)
 
@@ -108,6 +110,7 @@ class Ernest < Sinatra::Base
     a = Address.find(params[:id])
 
     body = json_parse request
+    return 400 if body.nil?
 
     a.validate! body['exists']
   end
@@ -162,12 +165,12 @@ class Ernest < Sinatra::Base
 
   def json_parse request
     body = request.body.read
-    return 400 if body.blank?
+    return nil if body.blank?
 
     begin
       body = JSON.parse body
     rescue JSON::ParserError
-      return 400
+      return nil
     end
 
     body
