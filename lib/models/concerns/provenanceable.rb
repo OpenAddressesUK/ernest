@@ -10,6 +10,7 @@ module Provenanceable
     validates :activity, presence: true
     
     has_many :derived, class_name: "Derivation", as: :entity
+    has_many :activities, through: :derived
     
   end
 

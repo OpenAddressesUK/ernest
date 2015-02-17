@@ -32,7 +32,7 @@ shared_examples_for "Provenanceable" do
     expect(source).to be_present
     expect(source.class).to eq Source
 
-    expect(source.derived[0].activity.send(described_class.name.downcase.pluralize.to_sym)[0]).to eq entity
+    expect(source.activities[0].send(described_class.name.downcase.pluralize.to_sym)[0]).to eq entity
     
   end
 
