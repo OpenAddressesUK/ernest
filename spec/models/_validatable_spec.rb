@@ -7,8 +7,8 @@ shared_examples_for "Validatable" do
 
     object.validate!(true)
 
-    expect(object.derived[0].activity.validations).not_to be_empty
-    expect(object.derived[0].activity.validations[0].value).to eq 1.0
+    expect(object.activities[0].validations).not_to be_empty
+    expect(object.activities[0].validations[0].value).to eq 1.0
   end
 
   it "supports negative validation" do
@@ -16,8 +16,8 @@ shared_examples_for "Validatable" do
 
     object.validate!(false)
 
-    expect(object.derived[0].activity.validations).not_to be_empty
-    expect(object.derived[0].activity.validations[0].value).to eq -1.0
+    expect(object.activities[0].validations).not_to be_empty
+    expect(object.activities[0].validations[0].value).to eq -1.0
   end
   
   it "supports validation with timestamp" do
@@ -26,7 +26,7 @@ shared_examples_for "Validatable" do
   
     object.validate!(true, timestamp: time)
   
-    validation = object.derived[0].activity.validations[0]
+    validation = object.activities[0].validations[0]
     expect(validation.activity.executed_at).to be_within(1.seconds).of(time)
   end
 
@@ -36,7 +36,7 @@ shared_examples_for "Validatable" do
   
     object.validate!(true, attribution: "James Smith <james@example.com>")
   
-    validation = object.derived[0].activity.validations[0]
+    validation = object.activities[0].validations[0]
     expect(validation.activity.attribution).to eq "James Smith <james@example.com>"
   end
 
@@ -46,7 +46,7 @@ shared_examples_for "Validatable" do
   
     object.validate!(true, reason: "It's been demolished")
   
-    validation = object.derived[0].activity.validations[0]
+    validation = object.activities[0].validations[0]
     expect(validation.reason).to eq "It's been demolished"
   end
 
