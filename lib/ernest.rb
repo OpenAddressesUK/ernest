@@ -112,7 +112,13 @@ class Ernest < Sinatra::Base
     body = json_parse request
     return 400 if body.nil?
 
-    a.validate! body['exists']
+    options = {}
+    options[:timestamp] = DateTime.parse body['timestamp'] if body['timestamp']
+    options[:attribution] = body['attribution'] if body['attribution']
+    options[:reason] = body['reason'] if body['reason']
+
+    a.validate! body['exists'], options
+
   end
 
   def address_data(a)
