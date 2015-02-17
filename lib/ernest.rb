@@ -103,6 +103,15 @@ class Ernest < Sinatra::Base
     address_data(a).to_json
   end
 
+  post '/addresses/:id/validations' do
+    content_type :json
+    a = Address.find(params[:id])
+
+    body = json_parse request
+
+    a.validate! body['exists']
+  end
+
   def address_data(a)
     h = {}
     h["url"] = "http://ernest.openaddressesuk.org/addresses/#{a.id}"
@@ -151,4 +160,16 @@ class Ernest < Sinatra::Base
     }
   end
 
+  def json_parse request
+    body = request.body.read
+    return 400 if body.blank?
+
+    begin
+      body = JSON.parse body
+    rescue JSON::ParserError
+      return 400
+    end
+
+    body
+  end
 end
