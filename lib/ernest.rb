@@ -108,6 +108,11 @@ class Ernest < Sinatra::Base
     address_data(a).to_json
   end
 
+  options '/addresses/:id/validations' do
+    cross_origin
+    content_type :json
+  end
+  
   post '/addresses/:id/validations' do
     cross_origin
     content_type :json

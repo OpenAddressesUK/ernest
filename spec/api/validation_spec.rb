@@ -11,6 +11,12 @@ describe Ernest do
     expect(last_response.headers['Access-Control-Allow-Origin']).to eq 'http://example.com'
   end
 
+  it "allows pre-flight OPTIONS cross-origin check" do
+    options "addresses/#{@address.id}/validations", nil, {'HTTP_ORIGIN' => 'http://example.com'}
+
+    expect(last_response.headers['Access-Control-Allow-Origin']).to eq 'http://example.com'
+  end
+
   it "allows validation of an existing address" do
     post "addresses/#{@address.id}/validations", '{ "exists": true }'
 
