@@ -35,7 +35,8 @@ end
 
 class Ernest < Sinatra::Base
   register Sinatra::CrossOrigin
-
+  enable :cross_origin
+  
   if ENV["RACK_ENV"]=='production'
     use Raygun::Middleware::RackExceptionInterceptor
   end
