@@ -9,6 +9,7 @@ JiffyBag.configure %w{
 
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/cross_origin'
 require 'require_all'
 require 'sidekiq'
 require 'json'
@@ -33,7 +34,9 @@ Raygun.setup do |config|
 end
 
 class Ernest < Sinatra::Base
-
+  register Sinatra::CrossOrigin
+  enable :cross_origin
+  
   if ENV["RACK_ENV"]=='production'
     use Raygun::Middleware::RackExceptionInterceptor
   end
@@ -105,7 +108,13 @@ class Ernest < Sinatra::Base
     address_data(a).to_json
   end
 
+  options '/addresses/:id/validations' do
+    cross_origin
+    content_type :json
+  end
+  
   post '/addresses/:id/validations' do
+    cross_origin
     content_type :json
     a = Address.find(params[:id])
 
