@@ -8,8 +8,14 @@ require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
 namespace :ernest do
-  task :import do
-    ImportPublicAddresses.perform
+  namespace :import do
+    task :public do
+      ImportPublicAddresses.perform
+    end
+
+    task :turbot do
+      ImportTurbotAddresses.perform
+    end
   end
 end
 
