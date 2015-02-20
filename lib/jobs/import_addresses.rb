@@ -5,8 +5,8 @@ Dotenv.load
 
 class ImportAddresses
 
-  def self.create_address body
-    address = JSON.parse(body)
+  def self.create_address address
+  #  address = JSON.parse(body)
 
     provenance = create_provenance(address['provenance'])
     a = Address.new(activity_attributes: provenance)

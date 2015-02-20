@@ -2,6 +2,7 @@ require 'jiffybag'
 JiffyBag.configure %w{
   RAYGUN_API_KEY
   IRON_MQ_QUEUE
+  IRON_MQ_TURBOT_QUEUE
   IRON_MQ_TOKEN
   IRON_MQ_PROJECT_ID
   ERNEST_ALLOWED_KEYS
@@ -36,7 +37,7 @@ end
 class Ernest < Sinatra::Base
   register Sinatra::CrossOrigin
   enable :cross_origin
-  
+
   if ENV["RACK_ENV"]=='production'
     use Raygun::Middleware::RackExceptionInterceptor
   end
@@ -112,7 +113,7 @@ class Ernest < Sinatra::Base
     cross_origin
     content_type :json
   end
-  
+
   post '/addresses/:id/validations' do
     cross_origin
     content_type :json
