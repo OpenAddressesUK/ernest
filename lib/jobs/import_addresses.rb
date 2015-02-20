@@ -5,37 +5,22 @@ Dotenv.load
 
 class ImportAddresses
 
-  def self.perform
-    @msg = queue.get
+  def self.create_address body
+    address = JSON.parse(body)
 
-    while !@msg.nil? do
-      address = JSON.parse(@msg.body)
+    provenance = create_provenance(address['provenance'])
+    a = Address.new(activity_attributes: provenance)
 
-      provenance = create_provenance(address['provenance'])
-      a = Address.new(activity_attributes: provenance)
-
-      ['saon', 'paon', 'street', 'locality', 'town', 'postcode'].each do |type|
-        tag_type = TagType.find_or_create_by(label: type)
-        a.tags << Tag.create(
-                             label: address[type],
-                             tag_type: tag_type,
-                             activity_attributes: provenance
-                            )
-      end
-
-      a.save
-
-      @msg.delete
-      @msg = queue.get
+    ['saon', 'paon', 'street', 'locality', 'town', 'postcode'].each do |type|
+      tag_type = TagType.find_or_create_by(label: type)
+      a.tags << Tag.create(
+                           label: address[type],
+                           tag_type: tag_type,
+                           activity_attributes: provenance
+                          )
     end
-  end
 
-  def self.ironmq
-    @@ironmq ||= IronMQ::Client.new(token: JiffyBag['IRON_MQ_TOKEN'], project_id: JiffyBag['IRON_MQ_PROJECT_ID'], host: 'mq-aws-eu-west-1.iron.io')
-  end
-
-  def self.queue
-    ironmq.queue(JiffyBag['IRON_MQ_QUEUE'])
+    a.save
   end
 
   def self.create_provenance(provenance)
