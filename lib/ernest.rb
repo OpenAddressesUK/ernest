@@ -35,6 +35,8 @@ Raygun.setup do |config|
 end
 
 class Ernest < Sinatra::Base
+  set :public_folder, File.dirname(__FILE__) + '../public'
+
   register Sinatra::CrossOrigin
   enable :cross_origin
 
@@ -56,7 +58,7 @@ class Ernest < Sinatra::Base
       JiffyBag['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
     end
   end
-
+  
   post '/addresses', check: :valid_key? do
 #    body = request.body.read
 #    return 400 if body.blank?
@@ -101,6 +103,10 @@ class Ernest < Sinatra::Base
       total: page.total_count,
       addresses: addresses
     }.to_json
+  end
+
+  get '/' do
+    send_file "public/index.html"
   end
 
   get '/addresses/:id' do
