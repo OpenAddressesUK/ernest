@@ -1,6 +1,6 @@
 # spec/spec_helper.rb
 require 'rack/test'
-require 'pry'
+require 'byebug'
 require 'database_cleaner'
 require 'factory_girl'
 require "rspec-sidekiq"

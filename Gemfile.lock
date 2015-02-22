@@ -37,13 +37,19 @@ GEM
     arel (5.0.1.20140414130214)
     backports (3.6.4)
     builder (3.2.2)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     coderay (1.1.0)
+    columnize (0.9.0)
     connection_pool (2.0.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.3.0)
+    debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
     dotenv (1.0.2)
@@ -219,6 +225,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-mysql2spatial-adapter
   activesupport
+  byebug
   database_cleaner
   factory_girl
   guard-rspec
@@ -226,7 +233,6 @@ DEPENDENCIES
   jiffybag!
   kaminari
   mysql2
-  pry
   rack-test
   rake
   raygun4ruby
