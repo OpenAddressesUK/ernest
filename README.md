@@ -102,6 +102,8 @@ You can also optionally pass in geometries for each feature, if you have them. C
       "provenance": {
         "executed_at": "2014-01-01T13:00:00Z",
         "url": "http://www.example.com"
+        "attribution": "optional free-text attribution statement",
+        "processing_script": "https://github.com/OpenAddressesUK/common-ETL/blob/76c8124cb8055983efcc39cadcabb18bda8090c6/CH_Bulk_Extractor.py (what code was used to create the data - optional)",
       }
     }
   ]

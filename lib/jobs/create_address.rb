@@ -25,6 +25,8 @@ class CreateAddress
   def create_provenance(provenance)
     {
       executed_at: provenance['executed_at'],
+      attribution: provenance['attribution'],
+      processing_script: provenance['processing_script'],
       derivations: [
         Derivation.create(entity: Source.find_or_create_by(input: provenance['url']))
       ]
