@@ -136,12 +136,12 @@ If it was from user input, use the `userInput` field to record the original text
 }
 ```
 
-You can also provide optional information about who submitted the data, or the code used to create it. `processingScript` should refer to a URL that uniquely identifies the code used, for instance a github URL with SHA:
+You can also provide optional information about who submitted the data, or the code used to create it. `processing_script` should refer to a URL that uniquely identifies the code used, for instance a github URL with SHA:
 ```
 "provenance": {
   "executed_at": "2014-01-01T13:00:00Z",
   "url": "http://www.example.com",
-  "processingScript": "https://github.com/OpenAddressesUK/common-ETL/blob/45e73b15815f9ecab75d0513066381dc5ec48a81/CH_Bulk_Extractor.py"
+  "processing_script": "https://github.com/OpenAddressesUK/common-ETL/blob/45e73b15815f9ecab75d0513066381dc5ec48a81/CH_Bulk_Extractor.py"
 }
 ```
 Or, you can use a free-text attribution field to give a name or user ID for the submitted, especially in the case of `userInput`.
