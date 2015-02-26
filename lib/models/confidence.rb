@@ -28,8 +28,8 @@ class Confidence < ActiveRecord::Base
   def calculate_for_town_and_postcode(town, postcode)
     postcodes = get_postcodes_in_sector(postcode)
     addresses = addresses_from_postcodes(postcodes)
-    town_count = towns_from_addresses(addresses, town)
-    pc_count = postcodes.count
+    town_count = town_count_from_addresses(addresses, town)
+    pc_count = postcode_count(postcodes)
     confidence(town_count, pc_count)
   end
   
@@ -40,8 +40,8 @@ class Confidence < ActiveRecord::Base
   def calculate_for_street_and_postcode(street, postcode)
     postcodes = get_postcodes(postcode)
     addresses = addresses_from_postcodes(postcodes)
-    street_count = streets_from_addresses(addresses, street)
-    pc_count = postcodes.count
+    street_count = street_count_from_addresses(addresses, street)
+    pc_count = postcode_count(postcodes)
     confidence(street_count, pc_count)
   end
 
@@ -69,16 +69,20 @@ class Confidence < ActiveRecord::Base
     postcodes = Tag.where("label LIKE ?", "#{sector}%")
   end
 
-  def streets_from_addresses(addresses, street)
+  def street_count_from_addresses(addresses, street)
     addresses.select { |a| a.street.label == street.label }.count
   end
 
-  def towns_from_addresses(addresses, town)
+  def town_count_from_addresses(addresses, town)
     addresses.select { |a| a.town.label == town.label }.count
   end
 
   def addresses_from_postcodes(postcodes)
     postcodes.map { |p| p.addresses }.flatten
+  end
+
+  def postcode_count(postcodes)
+    postcodes.count
   end
 
 end
