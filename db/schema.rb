@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150226113158) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "value",      limit: 24
+    t.integer  "left_id"
+    t.integer  "right_id"
   end
 
   create_table "derivations", force: true do |t|
