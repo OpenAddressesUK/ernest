@@ -17,17 +17,12 @@ class Confidence < ActiveRecord::Base
   def calculate_value
     # If we already have a value, EJECT
     return if value
-    # MAGIC
-    # number of times this town appears in a postcode sector
-    if left.tag_type.label == "town" && right.tag_type.label == "postcode"
-      calculate_for_town_and_postcode(left, right)
-    elsif left.tag_type.label == "postcode" && right.tag_type.label == "town"
-      calculate_for_town_and_postcode(right, left)
-    elsif left.tag_type.label == "street" && right.tag_type.label == "postcode"
-      calculate_for_street_and_postcode(left, right)
-    elsif left.tag_type.label == "postcode" && right.tag_type.label == "street"
-      calculate_for_street_and_postcode(right, left)
-    end
+    # Work that shit out
+    send(:"calculate_for_#{left.tag_type.label}_and_#{right.tag_type.label}", left, right)
+  end
+
+  def calculate_for_postcode_and_town(postcode, town)
+    calculate_for_town_and_postcode(town, postcode)
   end
 
   def calculate_for_town_and_postcode(town, postcode)
@@ -38,6 +33,10 @@ class Confidence < ActiveRecord::Base
     town_count = addresses.select { |a| a.town.label == town.label }.count
     pc_count = postcodes.count
     confidence(town_count, pc_count)
+  end
+  
+  def calculate_for_postcode_and_street(postcode, street)
+    calculate_for_street_and_postcode(street, postcode)
   end
 
   def calculate_for_street_and_postcode(street, postcode)
