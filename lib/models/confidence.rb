@@ -23,6 +23,10 @@ class Confidence < ActiveRecord::Base
       calculate_for_town_and_postcode(left, right)
     elsif left.tag_type.label == "postcode" && right.tag_type.label == "town"
       calculate_for_town_and_postcode(right, left)
+    elsif left.tag_type.label == "street" && right.tag_type.label == "postcode"
+      calculate_for_street_and_postcode(left, right)
+    elsif left.tag_type.label == "postcode" && right.tag_type.label == "street"
+      calculate_for_street_and_postcode(right, left)
     end
   end
 
@@ -34,6 +38,14 @@ class Confidence < ActiveRecord::Base
     town_count = addresses.select { |a| a.town.label == town.label }.count
     pc_count = postcodes.count
     confidence(town_count, pc_count)
+  end
+
+  def calculate_for_street_and_postcode(street, postcode)
+    postcodes = Tag.where(label: postcode.label)
+    addresses = postcodes.map { |p| p.addresses }.flatten
+    street_count = addresses.select { |a| a.street.label == street.label }.count
+    pc_count = postcodes.count
+    confidence(street_count, pc_count)
   end
 
   def confidence(number, total)

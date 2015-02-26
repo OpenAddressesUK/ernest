@@ -48,39 +48,63 @@ describe Confidence do
 
   context "creating confidence measures" do
 
-    before do
+    it "should be able to create a confidence measure given a pair of tags" do
       # Make a pair of tags
       pc_type = FactoryGirl.create(:tag_type, label: "postcode")
       town_type = FactoryGirl.create(:tag_type, label: "town")
-      @pc = FactoryGirl.create(:tag, label: "XX1 1XX", tag_type: pc_type)
-      @town = FactoryGirl.create(:tag, label: "Fooville", tag_type: town_type)
-    end
-
-    it "should be able to create a confidence measure given a pair of tags" do
+      pc = FactoryGirl.create(:tag, label: "XX1 1XX", tag_type: pc_type)
+      town = FactoryGirl.create(:tag, label: "Fooville", tag_type: town_type)
       # Create the confidence measure with just the tags
-      c = Confidence.new(left: @pc, right: @town)
+      c = Confidence.new(left: pc, right: town)
       expect(c.value).to be_present
       expect(c.valid?).to eq true
       # Confidence should have generated a value for us
       expect(c.value).to be_present
     end
 
-    it "should generate a proper confidence measure" do
-      35.times do |n|
-        FactoryGirl.create(:address, tags: [
-          FactoryGirl.create(:tag, label: "SW1A 1AA", tag_type: FactoryGirl.create(:tag_type, label: "postcode")),
-          FactoryGirl.create(:tag, label: "The Shire", tag_type: FactoryGirl.create(:tag_type, label: "town"), point: "POINT (309250 411754)"),
-          FactoryGirl.create(:tag, label: "Hobbitton", tag_type: FactoryGirl.create(:tag_type, label: "locality")),
-          FactoryGirl.create(:tag, label: "Hobbit Drive", tag_type: FactoryGirl.create(:tag_type, label: "street")),
-          FactoryGirl.create(:tag, label: n, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
-        ])
+    context "with a load of data" do
+      before :all do
+        35.times do |n|
+          FactoryGirl.create(:address, tags: [
+            FactoryGirl.create(:tag, label: "SW1A 1AA", tag_type: FactoryGirl.create(:tag_type, label: "postcode")),
+            FactoryGirl.create(:tag, label: "The Shire", tag_type: FactoryGirl.create(:tag_type, label: "town"), point: "POINT (309250 411754)"),
+            FactoryGirl.create(:tag, label: "Hobbitton", tag_type: FactoryGirl.create(:tag_type, label: "locality")),
+            FactoryGirl.create(:tag, label: "Hobbit Drive", tag_type: FactoryGirl.create(:tag_type, label: "street")),
+            FactoryGirl.create(:tag, label: n, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
+          ])
+        end
       end
 
-      pc = Tag.where(label: "SW1A 1AA").first
-      town = Tag.where(label: "The Shire").first
-      c = Confidence.new(left: pc, right: town)
-      expect(c.value).to be_within(0.0001).of(0.8284)
+      it "should calculate confidence between postcodes and towns" do
+        pc = Tag.where(label: "SW1A 1AA").first
+        town = Tag.where(label: "The Shire").first
+        c = Confidence.new(left: pc, right: town)
+        expect(c.value).to be_within(0.0001).of(0.8284)
+      end
+
+      it "should calculate confidence between towns and postcodes" do
+        pc = Tag.where(label: "SW1A 1AA").first
+        town = Tag.where(label: "The Shire").first
+        c = Confidence.new(left: town, right: pc)
+        expect(c.value).to be_within(0.0001).of(0.8284)
+      end
+
+      it "should calculate confidence between postcodes and streets" do
+        pc = Tag.where(label: "SW1A 1AA").first
+        street = Tag.where(label: "Hobbit Drive").first
+        c = Confidence.new(left: pc, right: street)
+        expect(c.value).to be_within(0.0001).of(0.8284)
+      end
+
+      it "should calculate confidence between streets and postcodes" do
+        pc = Tag.where(label: "SW1A 1AA").first
+        street = Tag.where(label: "Hobbit Drive").first
+        c = Confidence.new(left: street, right: pc)
+        expect(c.value).to be_within(0.0001).of(0.8284)
+      end
+
     end
+
 
   end
 
