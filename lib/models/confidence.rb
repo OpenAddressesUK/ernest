@@ -26,11 +26,9 @@ class Confidence < ActiveRecord::Base
   end
 
   def calculate_for_town_and_postcode(town, postcode)
-    pc = UKPostcode.parse(postcode.label)
-    sector = "#{pc.outcode} #{pc.sector}"
-    postcodes = Tag.where("label LIKE ?", "#{sector}%")
-    addresses = postcodes.map { |p| p.addresses }.flatten
-    town_count = addresses.select { |a| a.town.label == town.label }.count
+    postcodes = get_postcodes_in_sector(postcode)
+    addresses = addresses_from_postcodes(postcodes)
+    town_count = towns_from_addresses(addresses, town)
     pc_count = postcodes.count
     confidence(town_count, pc_count)
   end
@@ -40,9 +38,9 @@ class Confidence < ActiveRecord::Base
   end
 
   def calculate_for_street_and_postcode(street, postcode)
-    postcodes = Tag.where(label: postcode.label)
-    addresses = postcodes.map { |p| p.addresses }.flatten
-    street_count = addresses.select { |a| a.street.label == street.label }.count
+    postcodes = get_postcodes(postcode)
+    addresses = addresses_from_postcodes(postcodes)
+    street_count = streets_from_addresses(addresses, street)
     pc_count = postcodes.count
     confidence(street_count, pc_count)
   end
@@ -58,6 +56,29 @@ class Confidence < ActiveRecord::Base
       self.value = 0.0
     end
   end
+  
+  # Split out so we can stub and test easily
 
+  def get_postcodes(postcode)
+    postcodes = Tag.where(label: postcode.label)
+  end
+
+  def get_postcodes_in_sector(postcode)
+    pc = UKPostcode.parse(postcode.label)
+    sector = "#{pc.outcode} #{pc.sector}"
+    postcodes = Tag.where("label LIKE ?", "#{sector}%")
+  end
+
+  def streets_from_addresses(addresses, street)
+    addresses.select { |a| a.street.label == street.label }.count
+  end
+
+  def towns_from_addresses(addresses, town)
+    addresses.select { |a| a.town.label == town.label }.count
+  end
+
+  def addresses_from_postcodes(postcodes)
+    postcodes.map { |p| p.addresses }.flatten
+  end
 
 end
