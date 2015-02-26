@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216113500) do
+ActiveRecord::Schema.define(version: 20150226113158) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 20150216113500) do
   add_index "addresses_tags", ["address_id", "tag_id"], :name => "index_addresses_tags_on_address_id_and_tag_id"
   add_index "addresses_tags", ["address_id"], :name => "index_addresses_tags_on_address_id"
   add_index "addresses_tags", ["tag_id"], :name => "index_addresses_tags_on_tag_id"
+
+  create_table "confidences", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "value",      limit: 24
+  end
 
   create_table "derivations", force: true do |t|
     t.integer  "entity_id"
