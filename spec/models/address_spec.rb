@@ -13,6 +13,38 @@ describe Address do
     expect(address.paon.label).to eq('3')
   end
 
+  it "creates a score" do
+    address = FactoryGirl.create(:address)
+
+    expect(address.score).to_not be_nil
+  end
+
+  it "creates the correct score" do
+    Address.skip_callback(:create, :after, :generate_score)
+
+    35.times do |n|
+      FactoryGirl.create(:address, tags: [
+        FactoryGirl.create(:tag, label: "SW1A 1AA", tag_type: FactoryGirl.create(:tag_type, label: "postcode")),
+        FactoryGirl.create(:tag, label: "The Shire", tag_type: FactoryGirl.create(:tag_type, label: "town"), point: "POINT (309250 411754)"),
+        FactoryGirl.create(:tag, label: "Hobbitton", tag_type: FactoryGirl.create(:tag_type, label: "locality")),
+        FactoryGirl.create(:tag, label: "Hobbit Drive", tag_type: FactoryGirl.create(:tag_type, label: "street")),
+        FactoryGirl.create(:tag, label: n, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
+      ])
+    end
+
+    Address.set_callback(:create, :after, :generate_score)
+
+    address = FactoryGirl.create(:address, tags: [
+      FactoryGirl.create(:tag, label: "SW1A 1AA", tag_type: FactoryGirl.create(:tag_type, label: "postcode")),
+      FactoryGirl.create(:tag, label: "The Shire", tag_type: FactoryGirl.create(:tag_type, label: "town"), point: "POINT (309250 411754)"),
+      FactoryGirl.create(:tag, label: "Hobbitton", tag_type: FactoryGirl.create(:tag_type, label: "locality")),
+      FactoryGirl.create(:tag, label: "Hobbit Drive", tag_type: FactoryGirl.create(:tag_type, label: "street")),
+      FactoryGirl.create(:tag, label: 50, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
+    ])
+
+    expect(address.score).to be_within(0.0001).of(503.9596)
+  end
+  
   it_behaves_like "Provenanceable"
   it_behaves_like "Timestamps"
   it_behaves_like "Validatable"
