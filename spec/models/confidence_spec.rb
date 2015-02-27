@@ -4,7 +4,7 @@ describe Confidence do
 
   context "testing the basics" do
 
-    before :each do
+    before :all do
       # Make a pair of tags
       pc_type = FactoryGirl.create(:tag_type, label: "postcode")
       town_type = FactoryGirl.create(:tag_type, label: "town")
@@ -63,7 +63,7 @@ describe Confidence do
     end
 
     context "with a load of data" do
-      before :each do
+      before :all do
         35.times do |n|
           FactoryGirl.create(:address, tags: [
             FactoryGirl.create(:tag, label: "SW1A 1AA", tag_type: FactoryGirl.create(:tag_type, label: "postcode")),
@@ -76,35 +76,35 @@ describe Confidence do
       end
 
       it "should calculate confidence between postcodes and towns" do
-        pc = Tag.where(label: "SW1A 1AA").first
-        town = Tag.where(label: "The Shire").first
+        pc = Tag.where(label: "SW1A 1AA").last
+        town = Tag.where(label: "The Shire").last
         c = Confidence.new(left: pc, right: town)
         expect(c.value).to be_within(0.0001).of(0.8284)
       end
 
       it "should calculate confidence between towns and postcodes" do
-        pc = Tag.where(label: "SW1A 1AA").first
-        town = Tag.where(label: "The Shire").first
+        pc = Tag.where(label: "SW1A 1AA").last
+        town = Tag.where(label: "The Shire").last
         c = Confidence.new(left: town, right: pc)
         expect(c.value).to be_within(0.0001).of(0.8284)
       end
 
       it "should calculate confidence between postcodes and streets" do
-        pc = Tag.where(label: "SW1A 1AA").first
-        street = Tag.where(label: "Hobbit Drive").first
+        pc = Tag.where(label: "SW1A 1AA").last
+        street = Tag.where(label: "Hobbit Drive").last
         c = Confidence.new(left: pc, right: street)
         expect(c.value).to be_within(0.0001).of(0.8284)
       end
 
       it "should calculate confidence between streets and postcodes" do
-        pc = Tag.where(label: "SW1A 1AA").first
-        street = Tag.where(label: "Hobbit Drive").first
+        pc = Tag.where(label: "SW1A 1AA").last
+        street = Tag.where(label: "Hobbit Drive").last
         c = Confidence.new(left: street, right: pc)
         expect(c.value).to be_within(0.0001).of(0.8284)
       end
 
     end
-    
+
   end
 
   context "with stubbed data" do
@@ -116,7 +116,7 @@ describe Confidence do
       @pc = FactoryGirl.create(:tag, label: "SW1A 1AA", tag_type: pc_type)
       @town = FactoryGirl.create(:tag, label: "Fooville", tag_type: town_type)
     end
-    
+
     [
       {matching: 470, total: 473, confidence: 0.9545},
       {matching: 454,	total: 454,	confidence: 0.9539},
@@ -148,16 +148,16 @@ describe Confidence do
       {matching: 7,	  total: 91,	confidence: 0.000},
       {matching: 22,	total: 25,	confidence: 0.7660},
     ].each do |data|
-      
+
       it "should get confidence #{data[:confidence]} when #{data[:matching]} out of #{data[:total]} match" do
         expect_any_instance_of(Confidence).to receive(:town_count_from_addresses).and_return(data[:matching])
         expect_any_instance_of(Confidence).to receive(:postcode_count).and_return(data[:total])
         c = Confidence.new(left: @town, right: @pc)
         expect(c.value).to be_within(0.0001).of(data[:confidence])
       end
-      
+
     end
-    
+
   end
 
 end
