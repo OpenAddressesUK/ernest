@@ -20,8 +20,16 @@ class Address < ActiveRecord::Base
     # Get total confidence
     confidence = (823.4 * street_score.value) + (176.6 * town_score.value)
     # Apply heuristic adjustment
-    adjusted_score = confidence
+    adjusted_score = heuristic_adjustment(confidence)
     # Apply source adjustment
     self.score = adjusted_score * 0.61
   end
+
+  def heuristic_adjustment(confidence)
+    t = (Date.today - created_at.to_date).to_f / 365.242 # Using created_at for now as we don't have any other measurement
+    hl = 15
+    decay = 0.5 ** (t / hl)
+    confidence * decay
+  end
+
 end
