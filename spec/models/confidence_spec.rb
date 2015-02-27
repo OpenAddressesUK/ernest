@@ -79,28 +79,28 @@ describe Confidence do
         pc = Tag.where(label: "SW1A 1AA").last
         town = Tag.where(label: "The Shire").last
         c = Confidence.new(left: pc, right: town)
-        expect(c.value).to be_within(0.0001).of(0.8284)
+        expect(c.value).to be_within(0.0001).of(0.7599)
       end
 
       it "should calculate confidence between towns and postcodes" do
         pc = Tag.where(label: "SW1A 1AA").last
         town = Tag.where(label: "The Shire").last
         c = Confidence.new(left: town, right: pc)
-        expect(c.value).to be_within(0.0001).of(0.8284)
+        expect(c.value).to be_within(0.0001).of(0.7599)
       end
 
       it "should calculate confidence between postcodes and streets" do
         pc = Tag.where(label: "SW1A 1AA").last
         street = Tag.where(label: "Hobbit Drive").last
         c = Confidence.new(left: pc, right: street)
-        expect(c.value).to be_within(0.0001).of(0.8284)
+        expect(c.value).to be_within(0.0001).of(0.7599)
       end
 
       it "should calculate confidence between streets and postcodes" do
         pc = Tag.where(label: "SW1A 1AA").last
         street = Tag.where(label: "Hobbit Drive").last
         c = Confidence.new(left: street, right: pc)
-        expect(c.value).to be_within(0.0001).of(0.8284)
+        expect(c.value).to be_within(0.0001).of(0.7599)
       end
 
     end
