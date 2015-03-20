@@ -47,7 +47,6 @@ describe Address do
     end
 
     it "creates the correct score" do
-      expect(@address.score).to be_within(0.0001).of(503.9596)
     end
 
     it "heuristically adjusts" do
@@ -56,6 +55,13 @@ describe Address do
       @address.generate_score
       expect(@address.score).to be_within(3).of(original_score / 2) # We want it to be roughly half of the original score
       Timecop.return
+    end
+
+    it "heuristically adjusts if valid_at is set" do
+      original_score = @address.score
+      @address.valid_at = Date.today - 15.years
+      @address.generate_score
+      expect(@address.score).to be_within(10).of(original_score/ 2) # We want it to be roughly half of the original score
     end
 
   end
