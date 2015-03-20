@@ -11,6 +11,7 @@ describe Address do
     expect(address.locality.label).to eq('Hobbitton')
     expect(address.street.label).to eq('Hobbit Drive')
     expect(address.paon.label).to eq('3')
+    expect(address.valid_at).to eq(DateTime.parse("2015-01-01"))
   end
 
   it "creates a score" do

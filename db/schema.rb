@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227121613) do
+ActiveRecord::Schema.define(version: 20150320143452) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150227121613) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "score",       limit: 24
+    t.datetime "valid_at"
   end
 
   create_table "addresses_tags", id: false, force: true do |t|
