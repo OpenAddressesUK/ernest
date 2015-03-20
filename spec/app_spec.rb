@@ -75,6 +75,26 @@ describe Ernest do
     expect(address.valid_at).to eq(DateTime.parse("2014-01-01T13:00:00Z"))
   end
 
+  it "should create an address without valid_at value" do
+    Sidekiq::Testing.inline!
+    body = JSON.parse(@body)
+    body['addresses'].first['address'].delete('valid_at')
+
+    post 'addresses', body.to_json, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+
+    expect(Address.count).to eq(1)
+
+    address = Address.last
+
+    expect(address.tags.count).to eq(5)
+    expect(address.postcode.label).to eq('ABC 123')
+    expect(address.town.label).to eq('The Shire')
+    expect(address.locality.label).to eq('Hobbitton')
+    expect(address.street.label).to eq('Hobbit Drive')
+    expect(address.paon.label).to eq('3')
+    expect(address.valid_at).to eq(nil)
+  end
+
   it "should create an address with geodata" do
     Sidekiq::Testing.inline!
     body = JSON.parse(@body)
