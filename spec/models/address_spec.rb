@@ -51,9 +51,11 @@ describe Address do
     end
 
     it "heuristically adjusts" do
+      original_score = @address.score
       Timecop.travel(Date.today + 15.years)
       @address.generate_score
-      expect(@address.score).to be_within(2).of(503.9596 / 2) # We want it to be roughly half of the original score
+      expect(@address.score).to be_within(3).of(original_score / 2) # We want it to be roughly half of the original score
+      Timecop.return
     end
 
   end
