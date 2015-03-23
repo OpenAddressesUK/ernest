@@ -18,7 +18,7 @@ deploy:
   strategy: api
   api_key:
     secure: OJbpmEllpiolSqG5eB1hqgRTe4/w9F9njXlmUTsvWC7uBpff/63KJDKDPM0px0PzERlo5bU47ifwnhSRTEz/ObbMd9gjzafTDskIWY4qFumN3Eufu6fgmTC23ztroUjNQWD7miOLq8JH3erPME+4okSRIULMMrchmEzkjmqmHNU=
-  app: shrouded-caverns-1022
+  app: oa-ernest
   run:
   - rake db:migrate
   on:
@@ -30,3 +30,4 @@ env:
   - secure: OPlx6PJC6fHHFaUNSVzXkRoxXXTLCrOUYRSAC3H6FDBOPBaoYfdKP35NdIx2jv0eUCVjykE5NQS56aN7S1shUHYnu8bnHYyUgAmTMXo8/anjY/QPRAnYe2U9lpS3G1P0mJm4f3tJj2umIDHA03s5JO3ilP/kmhSTFuVBL4F4WZ8=
   - RAYGUN_API_KEY: lies
   - ERNEST_ALLOWED_KEYS: mendacity
+  - IRON_MQ_TURBOT_QUEUE: bawbag

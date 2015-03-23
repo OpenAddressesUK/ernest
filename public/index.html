@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ernest : Open Addresses</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+</body>
+  <a href="https://github.com/openaddressesuk/ernest"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+  <div class="container">
+
+    <div class="starter-template">
+      <h1>Ernest</h1>
+
+      <p>The canonical Open Addresses graph database, that stores all address information, history, and provenance.</p>
+
+      <p>Ernest has an API for storing data directly, but you wouldn't normally use it. Instead, you'd write scrapers using <a href='http://turbot.openaddressesuk.org'>Turbot</a>, and it sends them into Ernest. However, there are a couple of things you can do directly:
+
+      <h2>Address Validation</h2>
+
+      We use open data sources to create addresses, but it's still really handy to be able to confirm they exist (or don't). The address validation API allows clients to confirm addresses with optional reason and attribution statements.
+      
+      <table class='table table-striped'>
+        <tr>
+          <th>Option Name</th><th>Description</th><th>Format</th><th>Required?</th><th>Example</th>
+        </tr>
+        <tr>
+          <td>exists</td><td>Does the address exist?</td><td>true | false</td><td>yes</td><td>false</td>
+        </tr>
+        <tr>
+          <td>reason</td><td>A reason why the validation is what it is.</td><td>free text</td><td>no</td><td>The building has burnt down</td>
+        </tr>
+        <tr>
+          <td>attribution</td><td>Who or what checked the address?</td><td>free text</td><td>no</td><td>Bob Fish (using iOS validator app http://example.com)</td>
+        </tr>
+      </table>
+        
+
+      <h3>Javascript wrapper</h3>
+      
+      <p>If you want to validate an address from your own web pages, then the main OpenAddresses website provides a simple bit of Javascript you can use. It depends on jQuery, so you'll need that as well.</p>
+      
+      <code><pre>
+&lt;script src='https://code.jquery.com/jquery-2.1.3.min.js'&gt;&lt;/script&gt;
+&lt;script src='https://alpha.openaddressesuk.org/assets/validate_address.js'&gt;&lt;/script&gt;
+&lt;script&gt;
+
+function onValidateComplete(success) {
+  // Let the user know what happened
+}
+
+url = "https://alpha.openaddressesuk.org/addresses/rfV3zh"; // 10 Downing Street
+validateAddress(url,                        // The URL of the address being validated on openaddressesuk.org
+                true,                       // Does the address exist?
+                "Bob Fish",                 // Attribution (optional)
+                "I'm standing outside it",  // Reason (optional)
+                onValidateComplete);        // Callback method for success or failure.
+&lt;/script&gt;
+      </pre></code>
+      
+      <h3>Direct API</h3>
+
+      <p>Using the API directly is slightly more complex, but not much. The main wrinkle is that while you want to validate an entry on <a href='https://openaddressesuk.org'>https://openaddressesuk.org</a>, you are actually validating the entry in the canonical ernest database, which those public addresses are derived from. So there are a couple of steps:</p>
+      
+      <h4>Step 1:</h4>
+      
+      <p>Get the JSON version of the address you want to verify from <a href='https://openaddressesuk.org'>https://openaddressesuk.org</a>. For instance, if you're verifying <code>https://alpha.openaddressesuk.org/addresses/rfV3zh</code>, you'll want to get <code>https://alpha.openaddressesuk.org/addresses/rfV3zh.json</code>.</p>
+      
+      <code><pre>{
+  address: {
+    url: "https://alpha.openaddressesuk.org/addresses/rfV3zh",
+    sao: null,
+    pao: "10",
+    street: {
+      name: {
+        en: [
+          "DOWNING STREET"
+        ],
+        cy: [ ]
+      },
+      url: "https://alpha.openaddressesuk.org/streets/PXxwpD"
+    },
+    ...
+    provenance: {
+      activity: {
+        executed_at: "2015-02-03T02:09:09.133Z",
+        processing_scripts: "https://github.com/OpenAddressesUK/distiller",
+        derived_from: [
+          {
+            type: "Source",
+            urls: [
+              "http://ernest.openaddressesuk.org/addresses/2935752"
+            ],
+            downloaded_at: "2015-02-03T02:09:09.133Z",
+            processing_script: "https://github.com/OpenAddressesUK/distiller/tree/e1422600af0ee489e18c871cb93566151468f3e3/lib/distil.rb"
+          },
+          ...
+        ]
+      }
+    }
+  }
+}</pre></code>
+      
+      <p>
+        In that JSON, you can see that there is an ernest URL in the derivations. This shows the canonical address record in ernest that the address was based on. That's what you need to validate. Get hold of that URL, and then it's time for step 2.
+      </p>
+
+      <h4>Step 2:</h4>
+
+      <p>POST a JSON document to the ernest record's <code>validations</code> resource. If your ernest URL is <code>https://ernest.openaddressesuk.org/addresses/2935752</code>, POST to <code>https://ernest.openaddressesuk.org/addresses/2935752/validations</code>. The JSON document is very simple:</p>
+
+      <pre>{
+  "exists": true,
+  "reason": "I'm standing outside it",
+  "attribution": "Bob Fish"
+}</pre>
+
+      <p>You only have to provide <code>exists</code>. The rest is optional.</p>
+      
+      <p>If it works, you'll get back a <code>201</code>. If there was a problem with your input, you'll get a <code>400</code>.</p>
+
+      <h2>Feedback</h2>
+
+      <p>If you notice anything wrong, please <a href="https://github.com/OpenAddressesUK/ernest/issues">let us know</a>, or better still <a href="https://github.com/OpenAddressesUK/ernest/pulls">open a pull request to fix it!</a>.</p>
+
+      <h2>Who built this?</h2>
+
+      <p>This was built by the team at <a href="https://alpha.openaddressesuk.org/">OpenAddresses</a>. To find out more, visit the <a href="https://alpha.openaddressesuk.org/">project website</a>.</p>
+
+    </div>
+
+  </div><!-- /.container -->
+
+</body>

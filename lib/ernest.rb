@@ -2,6 +2,7 @@ require 'jiffybag'
 JiffyBag.configure %w{
   RAYGUN_API_KEY
   IRON_MQ_QUEUE
+  IRON_MQ_TURBOT_QUEUE
   IRON_MQ_TOKEN
   IRON_MQ_PROJECT_ID
   ERNEST_ALLOWED_KEYS
@@ -9,6 +10,7 @@ JiffyBag.configure %w{
 
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/cross_origin'
 require 'require_all'
 require 'sidekiq'
 require 'json'
@@ -33,6 +35,10 @@ Raygun.setup do |config|
 end
 
 class Ernest < Sinatra::Base
+  set :public_folder, File.dirname(__FILE__) + '../public'
+
+  register Sinatra::CrossOrigin
+  enable :cross_origin
 
   if ENV["RACK_ENV"]=='production'
     use Raygun::Middleware::RackExceptionInterceptor
@@ -52,7 +58,7 @@ class Ernest < Sinatra::Base
       JiffyBag['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
     end
   end
-
+  
   post '/addresses', check: :valid_key? do
 #    body = request.body.read
 #    return 400 if body.blank?
@@ -99,13 +105,23 @@ class Ernest < Sinatra::Base
     }.to_json
   end
 
+  get '/' do
+    send_file "public/index.html"
+  end
+
   get '/addresses/:id' do
     content_type :json
     a = Address.find(params[:id])
     address_data(a).to_json
   end
 
+  options '/addresses/:id/validations' do
+    cross_origin
+    content_type :json
+  end
+
   post '/addresses/:id/validations' do
+    cross_origin
     content_type :json
     a = Address.find(params[:id])
 

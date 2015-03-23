@@ -1,10 +1,10 @@
 ENV['IRON_MQ_QUEUE'] = "addresses_test"
 require 'spec_helper'
 
-describe ImportAddresses do
+describe ImportPublicAddresses do
 
   before(:each) do
-    @mock_queue = ImportAddresses.queue
+    @mock_queue = ImportPublicAddresses.queue
 
     10.times do |n|
       @message = {
@@ -53,19 +53,19 @@ describe ImportAddresses do
   end
 
   it "picks the correct number of messages from the queue", :vcr do
-    ImportAddresses.perform
+    ImportPublicAddresses.perform
 
     expect(Address.count).to eq(10)
   end
 
   it "deletes messages from the queue", :vcr do
-    ImportAddresses.perform
+    ImportPublicAddresses.perform
 
-    expect(ImportAddresses.queue.get).to eq(nil)
+    expect(ImportPublicAddresses.queue.get).to eq(nil)
   end
 
   it "generates the correct provenance", :vcr do
-    ImportAddresses.perform
+    ImportPublicAddresses.perform
 
     activity = Address.first.activity
 

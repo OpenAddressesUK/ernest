@@ -23,11 +23,27 @@ class CreateAddress
   end
 
   def create_provenance(provenance)
+    source  = nil
+    if provenance['url']
+      source = Source.find_or_initialize_by(input: provenance['url']) do |source|
+        source.kind = 'url'
+      end
+    elsif provenance['userInput']
+      source = Source.find_or_initialize_by(input: provenance['userInput']) do |source|
+        source.kind = 'userInput'
+      end
+    end
+    if source
+      source.activity_attributes = {
+        executed_at: provenance['executed_at']
+      }
+      source.save!
+    end
     {
       executed_at: provenance['executed_at'],
-      derivations: [
-        Derivation.create(entity: Source.find_or_create_by(input: provenance['url']))
-      ]
+      attribution: provenance['attribution'],
+      processing_script: provenance['processing_script'],
+      derivations: source ? [Derivation.create(entity: source)] : []
     }
   end
 end

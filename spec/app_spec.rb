@@ -27,7 +27,7 @@ describe Ernest do
           },
           provenance: {
             executed_at: "2014-01-01T13:00:00Z",
-            url: "http://www.example.com"
+            url: "http://www.example.com"            
           }
         }
       ]
@@ -92,6 +92,38 @@ describe Ernest do
     expect(address.street.point.to_s).to eq("POINT (179645.0 529090.0)")
   end
 
+  it "should store provenance fields" do
+    Sidekiq::Testing.inline!
+    body = JSON.parse(@body)
+    body['addresses'].first['provenance']['attribution'] = "Bob Fish"
+    body['addresses'].first['provenance']['processing_script'] = "https://github.com/OpenAddressesUK/ernest"
+    
+    post 'addresses', body.to_json, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+
+    expect(Address.count).to eq(1)
+
+    address = Address.last
+    expect(address.activity.derivations.first.entity.input).to eq('http://www.example.com')
+    expect(address.activity.derivations.first.entity.kind).to eq('url')
+    expect(address.activity.attribution).to eq('Bob Fish')
+    expect(address.activity.processing_script).to eq('https://github.com/OpenAddressesUK/ernest')
+  end
+  
+  it "should store provenance fields for user input" do
+    Sidekiq::Testing.inline!
+    body = JSON.parse(@body)
+    body['addresses'].first['provenance']['url'] = nil
+    body['addresses'].first['provenance']['userInput'] = "Bob Loblaw's Law Blog"
+    
+    post 'addresses', body.to_json, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+
+    expect(Address.count).to eq(1)
+
+    address = Address.last
+    expect(address.activity.derivations.first.entity.input).to eq("Bob Loblaw's Law Blog")
+    expect(address.activity.derivations.first.entity.kind).to eq('userInput')
+  end
+  
   it "should apply a user" do
     Sidekiq::Testing.inline!
     post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
