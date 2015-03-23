@@ -52,9 +52,10 @@ describe Ernest do
   end
 
   it "should queue a CreateAddress job" do
+    expect(CreateAddress).to receive(:perform_async).with(JSON.parse(@body), @user.api_key)
+
     post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
-    expect(CreateAddress).to have_enqueued_job(JSON.parse(@body), @user.api_key)
     expect(last_response.status).to eq(202)
   end
 
