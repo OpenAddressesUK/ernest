@@ -63,7 +63,7 @@ describe Confidence do
     end
 
     context "with a load of data" do
-      before :all do
+      before :each do
         35.times do |n|
           FactoryGirl.create(:address, tags: [
             FactoryGirl.create(:tag, label: "SW1A 1AA", tag_type: FactoryGirl.create(:tag_type, label: "postcode")),
