@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Ernest do
 
-  before(:all) do
+  before(:each) do
     @user = FactoryGirl.create(:user)
     ENV['ERNEST_ALLOWED_KEYS'] = @user.api_key
     @body = {

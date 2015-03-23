@@ -4,7 +4,7 @@ describe Confidence do
 
   context "testing the basics" do
 
-    before :all do
+    before :each do
       # Make a pair of tags
       pc_type = FactoryGirl.create(:tag_type, label: "postcode")
       town_type = FactoryGirl.create(:tag_type, label: "town")
@@ -109,7 +109,7 @@ describe Confidence do
 
   context "with stubbed data" do
 
-    before :all do
+    before :each do
       # Make a pair of tags
       pc_type = FactoryGirl.create(:tag_type, label: "postcode")
       town_type = FactoryGirl.create(:tag_type, label: "town")
