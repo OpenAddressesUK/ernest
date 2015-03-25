@@ -121,9 +121,9 @@ class Ernest < Sinatra::Base
     body = json_parse request
 
     address = Address.new
-    address.valid_at = body.delete('valid_at')
+    address.valid_at = body['valid_at']
 
-    body.each do |type, label|
+    body.expect('valid_at').each do |type, label|
       tag_type = TagType.find_or_create_by(label: type)
       address.tags << Tag.new(label: label, tag_type: tag_type)
     end

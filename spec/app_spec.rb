@@ -344,18 +344,18 @@ describe Ernest do
           FactoryGirl.create(:tag, label: n, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
         ])
       end
-    end
 
-    it "generates confidence" do
-      body = {
+      @body = {
         paon:  "3",
         street: "Hobbit Drive",
         locality: "Hobbitton",
         town: "The Shire",
         postcode: "SW1A 1AA",
       }
+    end
 
-      post 'confidence', body.to_json, {}
+    it "generates confidence" do
+      post 'confidence', @body.to_json, {}
 
       response = JSON.parse last_response.body
 
@@ -365,20 +365,21 @@ describe Ernest do
     end
 
     it "heurisically adjusts" do
-      body = {
-        paon:  "3",
-        street: "Hobbit Drive",
-        locality: "Hobbitton",
-        town: "The Shire",
-        postcode: "SW1A 1AA",
-        valid_at: DateTime.now - 15.years
-      }
+      @body['valid_at'] = DateTime.now - 15.years
 
-      post 'confidence', body.to_json, {}
+      post 'confidence', @body.to_json, {}
 
       response = JSON.parse last_response.body
 
       expect(response['confidence']).to be_within(0.1).of(505.3389914223 / 2)
+    end
+
+    it "returns the original address" do
+      post 'confidence', @body.to_json, {}
+
+      response = JSON.parse last_response.body
+
+      expect(response['address']).to eq(body)
     end
 
   end
