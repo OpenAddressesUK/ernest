@@ -47,6 +47,7 @@ describe Address do
     end
 
     it "creates the correct score" do
+      expect(@address.score).to be_within(0.0001).of(498.6952)
     end
 
     it "heuristically adjusts" do
