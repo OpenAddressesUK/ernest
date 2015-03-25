@@ -56,7 +56,7 @@ describe Ernest do
     '{}'
   ].each do |bad_data|
     it "returns a 400 on #{bad_data}" do
-      post "addresses/#{@address.id}/validations", bad_data, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+      post "addresses/#{@address.id}/validations", bad_data
       expect(last_response.status).to eq(400)
     end
   end
