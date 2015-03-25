@@ -9,6 +9,8 @@ require 'timecop'
 require 'vcr'
 require 'dotenv'
 
+ENV['RACK_ENV'] = 'test'
+
 require 'ernest'
 
 VCR.configure do |config|
@@ -20,8 +22,6 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
 end
-
-ENV['RACK_ENV'] = 'test'
 
 require File.expand_path '../../lib/ernest.rb', __FILE__
 
