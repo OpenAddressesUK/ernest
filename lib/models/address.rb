@@ -26,7 +26,7 @@ class Address < ActiveRecord::Base
   end
 
   def heuristic_adjustment(confidence)
-    t = (Date.today - (valid_at || created_at).to_date).to_f / 365.242 
+    t = (Date.today - (valid_at || created_at || Date.today).to_date).to_f / 365.242
     hl = 15
     decay = 0.5 ** (t / hl)
     confidence * decay
