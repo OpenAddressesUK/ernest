@@ -58,7 +58,7 @@ class Ernest < Sinatra::Base
       JiffyBag['ERNEST_ALLOWED_KEYS'].split(",").include?(@token)
     end
   end
-  
+
   post '/addresses', check: :valid_key? do
 #    body = request.body.read
 #    return 400 if body.blank?
@@ -113,6 +113,25 @@ class Ernest < Sinatra::Base
     content_type :json
     a = Address.find(params[:id])
     address_data(a).to_json
+  end
+
+  post '/confidence' do
+    content_type :json
+
+    body = json_parse request
+
+    address = Address.new
+    address.valid_at = body['valid_at']
+
+    body.except('valid_at').each do |type, label|
+      tag_type = TagType.find_or_create_by(label: type)
+      address.tags << Tag.new(label: label, tag_type: tag_type)
+    end
+
+    {
+      address: body,
+      confidence: address.generate_score
+    }.to_json
   end
 
   options '/addresses/:id/validations' do

@@ -1,4 +1,9 @@
+$:.unshift File.dirname(__FILE__)
+
 require 'spec_helper'
+require '_provenanceable_spec'
+require '_timestamps_spec'
+require '_validatable_spec'
 
 describe Address do
 
@@ -12,12 +17,6 @@ describe Address do
     expect(address.street.label).to eq('Hobbit Drive')
     expect(address.paon.label).to eq('3')
     expect(address.valid_at).to eq(DateTime.parse("2015-01-01"))
-  end
-
-  it "creates a score" do
-    address = FactoryGirl.create(:address)
-
-    expect(address.score).to_not be_nil
   end
 
   context "scoring" do
@@ -46,7 +45,12 @@ describe Address do
       ])
     end
 
+    it "creates a score" do
+      expect(@address.score).to_not be_nil
+    end
+
     it "creates the correct score" do
+      expect(@address.score).to be_within(0.0001).of(498.6952)
     end
 
     it "heuristically adjusts" do
@@ -62,6 +66,19 @@ describe Address do
       @address.valid_at = Date.today - 15.years
       @address.generate_score
       expect(@address.score).to be_within(10).of(original_score/ 2) # We want it to be roughly half of the original score
+    end
+
+    it "generates a score on an unsaved address object" do
+      @address = FactoryGirl.build(:address, tags: [
+        FactoryGirl.build(:tag, label: "SW1A 1AA", tag_type: FactoryGirl.create(:tag_type, label: "postcode")),
+        FactoryGirl.build(:tag, label: "The Shire", tag_type: FactoryGirl.create(:tag_type, label: "town"), point: "POINT (309250 411754)"),
+        FactoryGirl.build(:tag, label: "Hobbitton", tag_type: FactoryGirl.create(:tag_type, label: "locality")),
+        FactoryGirl.build(:tag, label: "Hobbit Drive", tag_type: FactoryGirl.create(:tag_type, label: "street")),
+        FactoryGirl.build(:tag, label: 50, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
+      ])
+      @address.generate_score
+
+      expect(@address.score).to be_within(0.0001).of(500.5312)
     end
 
   end

@@ -32,7 +32,7 @@ class Confidence < ActiveRecord::Base
     pc_count = postcode_count(postcodes)
     confidence(town_count, pc_count)
   end
-  
+
   def calculate_for_postcode_and_street(postcode, street)
     calculate_for_street_and_postcode(street, postcode)
   end
@@ -56,7 +56,7 @@ class Confidence < ActiveRecord::Base
       self.value = 0.0
     end
   end
-  
+
   # Split out so we can stub and test easily
 
   def get_postcodes(postcode)

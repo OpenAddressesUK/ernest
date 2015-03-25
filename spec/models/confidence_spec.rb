@@ -103,6 +103,28 @@ describe Confidence do
         expect(c.value).to be_within(0.0001).of(0.8284)
       end
 
+      it "should calculate confidence when tags have not been saved" do
+        pc = FactoryGirl.build(:tag, label: "SW1A 1AA", tag_type: FactoryGirl.create(:tag_type, label: "postcode"))
+        town = FactoryGirl.build(:tag, label: "The Shire", tag_type: FactoryGirl.create(:tag_type, label: "town"), point: "POINT (309250 411754)")
+        street = FactoryGirl.build(:tag, label: "Hobbit Drive", tag_type: FactoryGirl.create(:tag_type, label: "street"))
+
+        FactoryGirl.build(:address, tags: [
+          pc,
+          town,
+          FactoryGirl.build(:tag, label: "Hobbitton", tag_type: FactoryGirl.create(:tag_type, label: "locality")),
+          street,
+          FactoryGirl.build(:tag, label: 1, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
+        ])
+
+
+        town_confidence = Confidence.new(left: pc, right: town)
+        street_confidence = Confidence.new(left: pc, right: street)
+
+        expect(Address.count).to eq(35)
+        expect(town_confidence.value).to be_within(0.0001).of(0.8284)
+        expect(street_confidence.value).to be_within(0.0001).of(0.8284)
+      end
+
     end
 
   end
