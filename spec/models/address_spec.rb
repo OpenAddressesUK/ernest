@@ -80,8 +80,8 @@ describe Address do
 
   end
 
-  # it_behaves_like "Provenanceable"
-  # it_behaves_like "Timestamps"
-  # it_behaves_like "Validatable"
+  it_behaves_like "Provenanceable"
+  it_behaves_like "Timestamps"
+  it_behaves_like "Validatable"
 
 end
