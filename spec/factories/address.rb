@@ -9,6 +9,7 @@ FactoryGirl.define do
       FactoryGirl.create(:tag, label: "3", tag_type: FactoryGirl.create(:tag_type, label: "paon"))
     ] }
     activity { FactoryGirl.create(:activity) }
+    valid_at { DateTime.parse("2015-01-01") }
   end
 
 end

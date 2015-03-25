@@ -48,8 +48,8 @@ RSpec.configure do |config|
   FactoryGirl.find_definitions
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.around(:each) do |example|

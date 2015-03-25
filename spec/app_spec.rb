@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Ernest do
 
-  before(:all) do
+  before(:each) do
     @user = FactoryGirl.create(:user)
     ENV['ERNEST_ALLOWED_KEYS'] = @user.api_key
     @body = {
@@ -23,11 +23,12 @@ describe Ernest do
             },
             postcode: {
               name: "ABC 123"
-            }
+            },
+            valid_at: "2014-01-01T13:00:00Z"
           },
           provenance: {
             executed_at: "2014-01-01T13:00:00Z",
-            url: "http://www.example.com"            
+            url: "http://www.example.com"
           }
         }
       ]
@@ -51,9 +52,10 @@ describe Ernest do
   end
 
   it "should queue a CreateAddress job" do
+    expect(CreateAddress).to receive(:perform_async).with(JSON.parse(@body), @user.api_key)
+
     post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
-    expect(CreateAddress).to have_enqueued_job(JSON.parse(@body), @user.api_key)
     expect(last_response.status).to eq(202)
   end
 
@@ -71,6 +73,27 @@ describe Ernest do
     expect(address.locality.label).to eq('Hobbitton')
     expect(address.street.label).to eq('Hobbit Drive')
     expect(address.paon.label).to eq('3')
+    expect(address.valid_at).to eq(DateTime.parse("2014-01-01T13:00:00Z"))
+  end
+
+  it "should create an address without valid_at value" do
+    Sidekiq::Testing.inline!
+    body = JSON.parse(@body)
+    body['addresses'].first['address'].delete('valid_at')
+
+    post 'addresses', body.to_json, { "HTTP_ACCESS_TOKEN" => @user.api_key }
+
+    expect(Address.count).to eq(1)
+
+    address = Address.last
+
+    expect(address.tags.count).to eq(5)
+    expect(address.postcode.label).to eq('ABC 123')
+    expect(address.town.label).to eq('The Shire')
+    expect(address.locality.label).to eq('Hobbitton')
+    expect(address.street.label).to eq('Hobbit Drive')
+    expect(address.paon.label).to eq('3')
+    expect(address.valid_at).to eq(nil)
   end
 
   it "should create an address with geodata" do
@@ -97,7 +120,7 @@ describe Ernest do
     body = JSON.parse(@body)
     body['addresses'].first['provenance']['attribution'] = "Bob Fish"
     body['addresses'].first['provenance']['processing_script'] = "https://github.com/OpenAddressesUK/ernest"
-    
+
     post 'addresses', body.to_json, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(Address.count).to eq(1)
@@ -108,13 +131,13 @@ describe Ernest do
     expect(address.activity.attribution).to eq('Bob Fish')
     expect(address.activity.processing_script).to eq('https://github.com/OpenAddressesUK/ernest')
   end
-  
+
   it "should store provenance fields for user input" do
     Sidekiq::Testing.inline!
     body = JSON.parse(@body)
     body['addresses'].first['provenance']['url'] = nil
     body['addresses'].first['provenance']['userInput'] = "Bob Loblaw's Law Blog"
-    
+
     post 'addresses', body.to_json, { "HTTP_ACCESS_TOKEN" => @user.api_key }
 
     expect(Address.count).to eq(1)
@@ -123,7 +146,7 @@ describe Ernest do
     expect(address.activity.derivations.first.entity.input).to eq("Bob Loblaw's Law Blog")
     expect(address.activity.derivations.first.entity.kind).to eq('userInput')
   end
-  
+
   it "should apply a user" do
     Sidekiq::Testing.inline!
     post 'addresses', @body, { "HTTP_ACCESS_TOKEN" => @user.api_key }
