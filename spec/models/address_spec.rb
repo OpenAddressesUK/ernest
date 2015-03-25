@@ -19,12 +19,6 @@ describe Address do
     expect(address.valid_at).to eq(DateTime.parse("2015-01-01"))
   end
 
-  it "creates a score" do
-    address = FactoryGirl.create(:address)
-
-    expect(address.score).to_not be_nil
-  end
-
   context "scoring" do
 
     before :each do
@@ -49,6 +43,10 @@ describe Address do
         FactoryGirl.create(:tag, label: "Hobbit Drive", tag_type: FactoryGirl.create(:tag_type, label: "street")),
         FactoryGirl.create(:tag, label: 50, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
       ])
+    end
+
+    it "creates a score" do
+      expect(@address.score).to_not be_nil
     end
 
     it "creates the correct score" do
