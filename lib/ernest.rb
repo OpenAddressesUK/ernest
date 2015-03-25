@@ -123,7 +123,7 @@ class Ernest < Sinatra::Base
     address = Address.new
     address.valid_at = body['valid_at']
 
-    body.expect('valid_at').each do |type, label|
+    body.except('valid_at').each do |type, label|
       tag_type = TagType.find_or_create_by(label: type)
       address.tags << Tag.new(label: label, tag_type: tag_type)
     end
