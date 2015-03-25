@@ -7,6 +7,7 @@ class CreateAddress
         provenance = create_provenance(a['provenance'])
         address = Address.new(activity_attributes: provenance)
         address.user = User.find_by_api_key(token)
+        address.valid_at = a['address'].delete('valid_at')
 
         a['address'].each do |type, label|
           tag_type = TagType.find_or_create_by(label: type)

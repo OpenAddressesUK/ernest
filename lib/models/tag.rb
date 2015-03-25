@@ -4,6 +4,7 @@ class Tag < ActiveRecord::Base
   include Validatable
 
   belongs_to :tag_type
+  has_and_belongs_to_many :addresses
 
   # We can't have null spatial columns
   before_create :set_defaults

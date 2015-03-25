@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe CreateAddress do
 
-  before(:all) do
+  before(:each) do
     @user = FactoryGirl.create(:user)
     @body = {
       addresses: [
