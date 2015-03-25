@@ -1,4 +1,9 @@
+$:.unshift File.dirname(__FILE__)
+
 require 'spec_helper'
+require '_provenanceable_spec'
+require '_timestamps_spec'
+require '_validatable_spec'
 
 describe Address do
 
