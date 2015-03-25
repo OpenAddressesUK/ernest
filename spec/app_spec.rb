@@ -346,11 +346,11 @@ describe Ernest do
       end
 
       @body = {
-        paon:  "3",
-        street: "Hobbit Drive",
-        locality: "Hobbitton",
-        town: "The Shire",
-        postcode: "SW1A 1AA",
+        'paon' =>  '3',
+        'street' => 'Hobbit Drive',
+        'locality' => 'Hobbitton',
+        'town' => 'The Shire',
+        'postcode' => 'SW1A 1AA',
       }
     end
 
