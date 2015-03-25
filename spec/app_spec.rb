@@ -379,7 +379,7 @@ describe Ernest do
 
       response = JSON.parse last_response.body
 
-      expect(response['address']).to eq(body)
+      expect(response['address']).to eq(@body)
     end
 
   end
