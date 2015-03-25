@@ -21,12 +21,14 @@ describe Ernest do
     post "addresses/#{@address.id}/validations", '{ "exists": true }'
 
     expect(@address.activities[0].validations[0].value).to eq 1.0
+    expect(last_response.status).to eq(201)
   end
 
   it "allows rejection of an existing address" do
     post "addresses/#{@address.id}/validations", '{ "exists": false }'
 
     expect(@address.activities[0].validations[0].value).to eq -1.0
+    expect(last_response.status).to eq(201)
   end
 
   it "accepts a timestamp with a validation" do
@@ -45,5 +47,17 @@ describe Ernest do
     post "addresses/#{@address.id}/validations", '{ "exists": true, "reason": "For Science" }'
 
     expect(@address.activities[0].validations[0].reason).to eq 'For Science'
+  end
+
+  [
+    '{ "exists": "derp"',
+    '{ "exists": "derp" }',
+    '{ "exists": "true" }',
+    '{}'
+  ].each do |bad_data|
+    it "returns a 400 on #{bad_data}" do
+      post "addresses/#{@address.id}/validations", bad_data
+      expect(last_response.status).to eq(400)
+    end
   end
 end

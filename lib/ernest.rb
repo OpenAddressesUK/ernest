@@ -133,6 +133,8 @@ class Ernest < Sinatra::Base
     options[:attribution] = body['attribution'] if body['attribution']
     options[:reason] = body['reason'] if body['reason']
 
+    return 400 if not [true, false].include? body['exists']
+
     a.validate! body['exists'], options
     return 201
   end
