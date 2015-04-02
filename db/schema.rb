@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320143452) do
+ActiveRecord::Schema.define(version: 20150401142804) do
 
   create_table "activities", force: true do |t|
     t.datetime "executed_at"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20150320143452) do
   end
 
   add_index "tags", ["area"], :name => "index_tags_on_area", :spatial => true
+  add_index "tags", ["label"], :name => "index_tags_on_label"
+  add_index "tags", ["label"], :name => "label_search"
   add_index "tags", ["line"], :name => "index_tags_on_line", :spatial => true
   add_index "tags", ["point"], :name => "index_tags_on_point", :spatial => true
 
