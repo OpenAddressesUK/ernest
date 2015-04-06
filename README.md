@@ -41,7 +41,9 @@ In another Terminal window, run:
 
 ## Adding addresses
 
-**Note: We are currently not accepting addresses from users to the live system during the alpha period, but if you want to add addresses to your development instance, you can follow the instructions below**
+Please see our Turbot instance at [http://turbot.openaddressesuk.org/](http://turbot.openaddressesuk.org/)
+
+If you want to add addresses to a development instance, you can follow the instructions below
 
 ### Open the console
 
