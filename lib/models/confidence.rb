@@ -66,15 +66,16 @@ class Confidence < ActiveRecord::Base
   def get_postcodes_in_sector(postcode)
     pc = UKPostcode.parse(postcode.label)
     sector = "#{pc.outcode} #{pc.sector}"
-    postcodes = Tag.where("label LIKE ?", "#{sector}%")
+    postcodes = Tag.where("MATCH(label) AGAINST(?)", sector)
+    postcodes.select { |p| p.label =~ /^#{sector}/ }
   end
 
   def street_count_from_addresses(addresses, street)
-    addresses.select { |a| a.street.label == street.label }.count
+    addresses.select { |a| a.street.label == street.label }.length
   end
 
   def town_count_from_addresses(addresses, town)
-    addresses.select { |a| a.town.label == town.label }.count
+    addresses.select { |a| a.town.label == town.label }.length
   end
 
   def addresses_from_postcodes(postcodes)
@@ -82,7 +83,7 @@ class Confidence < ActiveRecord::Base
   end
 
   def postcode_count(postcodes)
-    postcodes.count
+    postcodes.length
   end
 
 end
