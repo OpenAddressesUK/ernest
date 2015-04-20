@@ -193,7 +193,20 @@ class Ernest < Sinatra::Base
         executed_at: d.entity.activity.executed_at,
         processing_script: d.entity.activity.processing_script
       }
-      d.entity.kind == "url" ? h[:urls] = [d.entity.input] : h[:input] = d.entity.input
+
+      case d.entity.kind
+      when 'url'
+        h[:urls] = [d.entity.input]
+
+      when 'userInput'
+        h[:input] = d.entity.input
+
+      when 'inference'
+        h[:inferred_from] = d.entity.input.split(',')
+
+      end
+
+    #  d.entity.kind == "url" ? h[:urls] = [d.entity.input] : h[:input] = d.entity.input
       h
     end
 

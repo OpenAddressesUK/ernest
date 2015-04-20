@@ -33,11 +33,13 @@ class ImportAddresses
     provenance['activity']['derived_from'].each do |p|
       activity = Activity.create(
         processing_script: p["processing_script"],
-        executed_at: p["downloaded_at"] || p["inputted_at"]
+        executed_at: p["downloaded_at"] || p["inputted_at"] || p["inferred_at"]
       )
 
       if p['type'] == "Source"
         source = Source.find_or_create_by(input: p['urls'].first, kind: "url", activity: activity)
+      elsif p['type'] == "inference"
+        source = Source.create(input: p['inferred_from'].join(','), kind: "inference", activity: activity)
       else
         source = Source.create(input: p['input'], kind: "userInput", activity: activity)
       end

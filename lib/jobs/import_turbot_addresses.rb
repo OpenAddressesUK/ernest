@@ -9,8 +9,9 @@ class ImportTurbotAddresses
 
     while !@msg.nil? do
       json = JSON.parse @msg.body
+
       unless json['snapshot_id'] == 'draft'
-    
+
         ImportAddresses.create_address json['data']
       end
       @msg.delete
