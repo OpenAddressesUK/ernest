@@ -136,17 +136,13 @@ describe ImportTurbotAddresses do
 
       activity = Address.first.activity
 
-      require 'pry'
-      binding.pry
-
-      # expect(activity.executed_at).to eq(DateTime.parse("2015-01-30T17:57:51+00:00"))
-      # expect(activity.executed_at).to eq("2015-04-20T12:33:11.843+00:00")
+      expect(activity.executed_at).to eq("2015-04-20T12:33:11.00+00:00")
       expect(activity.processing_script).to eq("https://github.com/OpenAddressesUK/jess")
       expect(activity.derivations.count).to eq(1)
 
       expect(activity.derivations.first.entity.kind).to eq("inference")
-      expect(activity.derivations.first.entity.inferred_from).to eq(["http://ernest.openaddressesuk.org/addresses/2813808","http://ernest.openaddressesuk.org/addresses/1032935"])
-      expect(activity.derivations.first.entity.excecuted_at).to eq("2015-04-20T12:33:11.844+00:00")
+      expect(activity.derivations.first.entity.input).to eq("http://ernest.openaddressesuk.org/addresses/2813808,http://ernest.openaddressesuk.org/addresses/1032935")
+      expect(activity.derivations.first.entity.activity.executed_at).to eq(Time.parse "2015-04-20T12:33:11.00+00:00")
       expect(activity.derivations.first.entity.activity.processing_script).to eq("https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb")
     end
   end

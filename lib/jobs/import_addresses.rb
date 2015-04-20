@@ -39,7 +39,7 @@ class ImportAddresses
       if p['type'] == "Source"
         source = Source.find_or_create_by(input: p['urls'].first, kind: "url", activity: activity)
       elsif p['type'] == "inference"
-        source = Source.create(input: p['input'], kind: "inference", activity: activity)
+        source = Source.create(input: p['inferred_from'].join(','), kind: "inference", activity: activity)
       else
         source = Source.create(input: p['input'], kind: "userInput", activity: activity)
       end
