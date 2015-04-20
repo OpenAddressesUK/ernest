@@ -265,6 +265,25 @@ describe Ernest do
       Timecop.return
     end
 
+    it "should display provenance for inferred addresses" do
+      Timecop.freeze("2015-02-02T11:00:00.000Z")
+
+      entity = FactoryGirl.create(:source,
+                                  kind: "inference",
+                                  input: "http://foo.bar/baz,http://bar.foo/bert",
+                                  activity: FactoryGirl.create(:activity, processing_script: "http://foo.bar"))
+      derivation = FactoryGirl.create(:derivation, entity: entity)
+      FactoryGirl.create(:address, activity: FactoryGirl.create(:activity, derivations: [derivation]))
+      get 'addresses'
+      response = JSON.parse last_response.body
+      expect(response['addresses'].last["provenance"]["activity"]["derived_from"].count).to eq(1)
+      expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["type"]).to eq("inference")
+      expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["inferred_from"].first).to eq("http://foo.bar/baz")
+      expect(response['addresses'].last["provenance"]["activity"]["derived_from"].first["inferred_from"].last).to eq("http://bar.foo/bert")
+
+      Timecop.return
+    end
+
     it "should paginate correctly" do
       50.times do
         FactoryGirl.create(:address)
