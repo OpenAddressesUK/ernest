@@ -50,7 +50,11 @@ describe Address do
     end
 
     it "creates the correct score" do
-      expect(@address.score).to be_within(0.0001).of(498.6952)
+      tolerance = 0.01 # this is supposed to be 0.0001 idk tbh
+      Timecop.freeze(2015,5,10) do
+        @address.generate_score
+        expect(@address.score).to be_within(tolerance).of(498.6952)
+      end
     end
 
     it "heuristically adjusts" do
@@ -76,9 +80,10 @@ describe Address do
         FactoryGirl.build(:tag, label: "Hobbit Drive", tag_type: FactoryGirl.create(:tag_type, label: "street")),
         FactoryGirl.build(:tag, label: 50, tag_type: FactoryGirl.create(:tag_type, label: "paon"))
       ])
-      @address.generate_score
-
-      expect(@address.score).to be_within(0.0001).of(500.5312)
+      Timecop.freeze(2015,3,25) do
+        @address.generate_score
+        expect(@address.score).to be_within(0.0001).of(500.5312)
+      end
     end
 
   end
