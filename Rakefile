@@ -1,6 +1,6 @@
 require "sinatra/activerecord/rake"
 require "./lib/ernest"
-require "./lib/jobs/import_addresses"
+require "./lib/jobs/import_turbot_addresses"
 require "./lib/jobs/import_public_addresses"
 
 require 'rspec/core/rake_task'
