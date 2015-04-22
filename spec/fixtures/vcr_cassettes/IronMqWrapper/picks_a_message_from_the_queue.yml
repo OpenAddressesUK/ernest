@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/ironmq_wrapper_test/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"some\":\"json\"}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 10:01:13 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140501312891268140"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 10:01:14 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/ironmq_wrapper_test/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '121'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 10:01:13 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140501312891268140","body":"{\"some\":\"json\"}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 10:01:14 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/ironmq_wrapper_test/clear
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 10:01:13 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Cleared"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 10:01:14 GMT
+recorded_with: VCR 2.9.3
