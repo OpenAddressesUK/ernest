@@ -12,12 +12,12 @@ class IronMqWrapper
   end
 
   def get
-    @msg = queue.get
+    @msg = call_with_retry(lambda { queue.get })
     @msg
   end
 
   def delete
-    @msg.delete
+    call_with_retry(lambda { @msg.delete })
   end
 
   def ironmq
@@ -26,6 +26,21 @@ class IronMqWrapper
 
   def queue
     @queue ||= ironmq.queue(@queue_name)
+  end
+
+  def call_with_retry(code)
+    limit ||= 5
+    tries ||= 0
+    code.call
+  rescue
+    if (tries += 1) <= limit
+      seconds = 5 * tries
+      $stderr.puts "Hit error, trying again in #{seconds} seconds"
+      sleep seconds
+      retry
+    else
+      $stderr.puts "Giving up"
+    end
   end
 
 end
