@@ -1,0 +1,1970 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":0,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:47 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521817065211474"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":1,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521817065147191"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":2,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521821360114490"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":3,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521821360114491"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":4,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521821360178771"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":5,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521821360178772"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":6,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521821360178774"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":7,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521821360114495"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":8,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521821360114502"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":9,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6140521821360178775"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520365366194994","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":0,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:49 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520365366194994
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:49 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:50 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:49 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520365366259344","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":1,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:50 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520365366259344
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:49 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:50 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:49 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520365366195003","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":2,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:50 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520365366195003
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:49 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:50 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:49 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520369661162302","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":3,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:50 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520369661162302
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:49 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:51 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:49 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520369661162305","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":4,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:51 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520369661162305
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:51 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520369661162306","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":5,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:51 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520369661162306
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:51 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520369661226651","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":6,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:51 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520369661226651
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:51 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520369661226656","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":7,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:51 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520369661226656
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:52 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520369661162318","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":8,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:52 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520369661162318
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:52 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140520369661226663","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":9,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:52 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140520369661226663
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:52 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521817065211474","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":0,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:52 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521817065211474
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:52 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521817065147191","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":1,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:52 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521817065147191
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:53 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:51 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521821360114490","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":2,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:53 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521821360114490
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:53 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521821360114491","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":3,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:53 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521821360114491
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:53 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521821360178771","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":4,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:53 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521821360178771
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:53 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521821360178772","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":5,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:53 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521821360178772
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521821360178774","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":6,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521821360178774
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521821360114495","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":7,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521821360114495
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521821360114502","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":8,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521821360114502
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '864'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6140521821360178775","body":"{\"type\":\"bot.record\",\"bot_name\":\"turbot-bot\",\"snapshot_id\":1,\"data\":{\"saon\":\"PM
+        HOUSE\",\"paon\":9,\"street\":\"Downing Street\",\"locality\":null,\"town\":\"London\",\"postcode\":\"SW1A
+        2AA\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-20T12:33:11.843+00:00\",\"processing_scripts\":\"https://github.com/OpenAddressesUK/jess\",\"derived_from\":[{\"type\":\"inference\",\"inferred_from\":[\"http://ernest.openaddressesuk.org/addresses/2813808\",\"http://ernest.openaddressesuk.org/addresses/1032935\"],\"inferred_at\":\"2015-04-20T12:33:11.844+00:00\",\"processing_script\":\"https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6140521821360178775
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:54 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 22 Apr 2015 11:20:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 11:20:55 GMT
+recorded_with: VCR 2.9.3
