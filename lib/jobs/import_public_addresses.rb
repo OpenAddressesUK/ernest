@@ -1,25 +1,17 @@
-require 'iron_mq'
-require 'dotenv'
-
-Dotenv.load
+require_relative './ironmq_wrapper'
 
 class ImportPublicAddresses
   def self.perform
+    queue = IronMqWrapper.new(JiffyBag['IRON_MQ_QUEUE'])
+
     @msg = queue.get
 
     while !@msg.nil? do
       ImportAddresses.create_address JSON.parse(@msg.body)
 
-      @msg.delete
+      queue.delete
       @msg = queue.get
     end
   end
 
-  def self.ironmq
-    @@ironmq ||= IronMQ::Client.new(token: JiffyBag['IRON_MQ_TOKEN'], project_id: JiffyBag['IRON_MQ_PROJECT_ID'], host: 'mq-aws-eu-west-1.iron.io')
-  end
-
-  def self.queue
-    ironmq.queue(JiffyBag['IRON_MQ_QUEUE'])
-  end
 end

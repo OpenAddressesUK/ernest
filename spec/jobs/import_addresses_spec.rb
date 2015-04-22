@@ -61,7 +61,7 @@ describe ImportPublicAddresses do
   it "deletes messages from the queue", :vcr do
     ImportPublicAddresses.perform
 
-    expect(ImportPublicAddresses.queue.get).to eq(nil)
+    expect(@mock_queue.get).to eq(nil)
   end
 
   it "generates the correct provenance", :vcr do
