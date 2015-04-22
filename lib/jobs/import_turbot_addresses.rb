@@ -11,6 +11,10 @@ class ImportTurbotAddresses
 
       unless json['snapshot_id'] == 'draft'
 
+        if json['data']['saon'] && json['data']['provenance']['activity']['derived_from'].first['type'] == "inference"
+          json['data']['saon'] = nil
+        end
+
         ImportAddresses.create_address json['data']
       end
       queue.delete

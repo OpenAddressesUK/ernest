@@ -102,7 +102,7 @@ describe ImportTurbotAddresses do
           "bot_name" => "turbot-bot",
           "snapshot_id" => 1,
           "data" => {
-            "saon"=>nil,
+            "saon"=>"PM HOUSE",
             "paon"=>n,
             "street"=>"Downing Street",
             "locality"=>nil,
@@ -144,6 +144,12 @@ describe ImportTurbotAddresses do
       expect(activity.derivations.first.entity.input).to eq("http://ernest.openaddressesuk.org/addresses/2813808,http://ernest.openaddressesuk.org/addresses/1032935")
       expect(activity.derivations.first.entity.activity.executed_at).to eq(Time.parse "2015-04-20T12:33:11.00+00:00")
       expect(activity.derivations.first.entity.activity.processing_script).to eq("https://github.com/OpenAddressesUK/jess/blob/ea74748d324efda47054e465cdfe76bdc4f8c5df/lib/jess.rb")
+    end
+
+    it "removes saons from inferred addresses", :vcr do
+      ImportTurbotAddresses.perform
+
+      expect(Address.first.saon.label).to eq(nil)
     end
   end
 
