@@ -1,10 +1,9 @@
-require 'iron_mq'
-require 'dotenv'
-
-Dotenv.load
+require_relative './ironmq_wrapper'
 
 class ImportTurbotAddresses
   def self.perform
+    queue = IronMqWrapper.new(JiffyBag['IRON_MQ_TURBOT_QUEUE'])
+
     @msg = queue.get
 
     while !@msg.nil? do
@@ -14,16 +13,9 @@ class ImportTurbotAddresses
 
         ImportAddresses.create_address json['data']
       end
-      @msg.delete
+      queue.delete
       @msg = queue.get
     end
   end
 
-  def self.ironmq
-    @@ironmq ||= IronMQ::Client.new(token: JiffyBag['IRON_MQ_TOKEN'], project_id: JiffyBag['IRON_MQ_PROJECT_ID'], host: 'mq-aws-eu-west-1.iron.io')
-  end
-
-  def self.queue
-    ironmq.queue(JiffyBag['IRON_MQ_TURBOT_QUEUE'])
-  end
 end
