@@ -6,7 +6,7 @@ describe ImportTurbotAddresses do
   context "with user inputted addresses" do
 
     before(:each) do
-      @mock_queue = ImportTurbotAddresses.queue
+      @mock_queue = IronMqWrapper.new(ENV['IRON_MQ_TURBOT_QUEUE']).queue
 
       10.times do |n|
         @message = {
@@ -69,7 +69,7 @@ describe ImportTurbotAddresses do
     it "deletes messages from the queue", :vcr do
       ImportTurbotAddresses.perform
 
-      expect(ImportTurbotAddresses.queue.get).to eq(nil)
+      expect(@mock_queue.get).to eq(nil)
     end
 
     it "generates the correct provenance", :vcr do
@@ -94,7 +94,7 @@ describe ImportTurbotAddresses do
 
   context "with inferred addresses" do
     before(:each) do
-      @mock_queue = ImportPublicAddresses.queue
+      @mock_queue = IronMqWrapper.new(ENV['IRON_MQ_TURBOT_QUEUE']).queue
 
       10.times do |n|
         @message = {

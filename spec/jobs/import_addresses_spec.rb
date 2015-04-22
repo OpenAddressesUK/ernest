@@ -4,7 +4,7 @@ require 'spec_helper'
 describe ImportPublicAddresses do
 
   before(:each) do
-    @mock_queue = ImportPublicAddresses.queue
+    @mock_queue = IronMqWrapper.new(ENV['IRON_MQ_QUEUE']).queue
 
     10.times do |n|
       @message = {
