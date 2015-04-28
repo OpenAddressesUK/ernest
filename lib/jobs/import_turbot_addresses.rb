@@ -10,7 +10,7 @@ class ImportTurbotAddresses
       begin
         json = JSON.parse @msg.body
       rescue JSON::ParserError
-        json = @msg.body.reverse.chomp('"').reverse.chomp('"').gsub("\\\"", '"')
+        json = JSON.parse @msg.body.reverse.chomp('"').reverse.chomp('"').gsub("\\\"", '"')
       end
 
       unless json['snapshot_id'] == 'draft'
