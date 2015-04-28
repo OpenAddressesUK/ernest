@@ -1,0 +1,1190 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695040455842990"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:01 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:01 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695044750872310"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:01 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:01 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695044750872311"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:01 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:01 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695044750872312"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:01 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695049045777594"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695049045839609"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695049045777595"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695049045839611"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695049045839612"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: post
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"ids":["6142695049045777600"],"msg":"Messages put on queue."}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695040455842990","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695040455842990
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:02 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695044750872310","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:02 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695044750872310
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:03 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695044750872311","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:03 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695044750872311
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:03 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695044750872312","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:03 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695044750872312
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:03 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695049045777594","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:03 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695049045777594
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:03 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695049045839609","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:03 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695049045839609
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:04 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695049045777595","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:04 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695049045777595
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:04 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695049045839611","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:04 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695049045839611
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:04 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695049045839612","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:04 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695049045839612
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:04 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '1647'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"id":"6142695049045777600","body":"{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London
+        Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}","timeout":60,"reserved_count":1,"push_status":{}}]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:04 GMT
+- request:
+    method: delete
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages/6142695049045777600
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:05 GMT
+    body:
+      encoding: UTF-8
+      string: '{"msg":"Deleted"}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:05 GMT
+- request:
+    method: get
+    uri: https://mq-aws-eu-west-1.iron.io/1/projects/<IRON_MQ_PROJECT_ID>/queues/<IRON_MQ_QUEUE>/messages
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - iron_mq_ruby-5.0.1 (iron_core_ruby-1.0.5)
+      Authorization:
+      - OAuth <IRON_MQ_TOKEN>
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 28 Apr 2015 07:54:05 GMT
+    body:
+      encoding: UTF-8
+      string: '{"messages":[]}'
+    http_version: 
+  recorded_at: Tue, 28 Apr 2015 07:54:05 GMT
+recorded_with: VCR 2.9.3

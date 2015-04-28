@@ -147,4 +147,22 @@ describe ImportTurbotAddresses do
     end
   end
 
+  context "with bad address data" do
+    before(:each) do
+      @mock_queue = IronMqWrapper.new(ENV['IRON_MQ_TURBOT_QUEUE']).queue
+
+      10.times do |n|
+        @message = "{\"type\":\"bot.record\",\"bot_name\":\"companies_house_3\",\"snapshot_id\":\"5571\",\"data\":{\"saon\":null,\"paon\":\"10\",\"street\":\"London Road\",\"locality\":null,\"town\":\"London\",\"postcode\":\"E13 0DN\",\"valid_at\":\"2014-03-31T00:00:00+00:00\",\"provenance\":{\"activity\":{\"executed_at\":\"2015-04-21T10:55:20+00:00\",\"processing_scripts\":\"http://github.com/oa-bots/companies_house\",\"derived_from\":[{\"type\":\"Source\",\"urls\":[\"http://download.companieshouse.gov.uk/BasicCompanyData-2015-04-01-part4_5.zip\"],\"downloaded_at\":\"2015-04-21T10:54:59+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/streets/NjqzJv\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/towns/4194LO\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"},{\"type\":\"Source\",\"urls\":[\"http://alpha.openaddressesuk.org/postcodes/EdcN8s\"],\"downloaded_at\":\"2015-04-21T10:55:20+00:00\",\"processing_script\":\"https://github.com/oa-bots/companies_house/tree/aa971c7b191c716f9ec6304af6910bc1d64db621/scraper.rb\"}]}}},\"data_type\":\"address\",\"identifying_fields\":null}"
+
+        @mock_queue.post(@message)
+      end
+    end
+
+    it "picks the correct number of messages from the queue", :vcr do
+      ImportTurbotAddresses.perform
+
+      expect(Address.count).to eq(10)
+    end
+  end
+
 end
