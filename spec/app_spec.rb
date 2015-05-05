@@ -173,6 +173,9 @@ describe Ernest do
 
       expect(response['addresses'].first).to include(
         {
+          "uprn"=>{
+            "name"=>"200133435"
+          },
           "saon"=>{
             "name"=>nil
           },
@@ -203,6 +206,9 @@ describe Ernest do
 
       expect(response['addresses'].last).to include(
         {
+          "uprn"=>{
+            "name"=>"200133435"
+          },
           "saon"=>{
             "name"=>nil
           },
