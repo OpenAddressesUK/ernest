@@ -8,7 +8,8 @@ class TagType < ActiveRecord::Base
     'locality',
     'town',
     'postcode',
-    'country'
+    'country',
+    'uri'
   ]
 
   validates :label, inclusion: { in: ALLOWED_LABELS, message: "%{value} is not a valid label"  }
