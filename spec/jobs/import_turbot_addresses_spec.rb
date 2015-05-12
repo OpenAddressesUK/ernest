@@ -171,4 +171,66 @@ describe ImportTurbotAddresses do
     end
   end
 
+  context "with addresses with URIs" do
+    before(:each) do
+      @mock_queue = IronMqWrapper.new(ENV['IRON_MQ_TURBOT_QUEUE']).queue
+
+      10.times do |n|
+        @message = {
+          "type" => "bot.record",
+          "bot_name" => "turbot-bot",
+          "snapshot_id" => 1,
+          "data" => {
+            "uprn"=>"2003322#{n}",
+            "uri"=>"https://alpha.openaddressesuk.org/addresses/#{n}",
+            "provenance"=> {
+              "activity"=> {
+                "executed_at"=>"2015-01-30T17:57:51+00:00",
+                "processing_scripts"=>"https://github.com/OpenAddressesUK/sorting_office",
+                "derived_from" => [
+                  {
+                    "type"=>"userInput",
+                    "input"=>"10 Downing Street, London, SW1A 2AA",
+                    "inputted_at"=>"2015-01-30T17:57:51+00:00",
+                    "processing_script"=> "https://github.com/OpenAddressesUK/sorting_office/tree/0fff78c71a170e2264faef7962e19f99a645c1d0/lib/sorting_office/address.rb"
+                  },
+                  {
+                    "type"=>"Source",
+                    "urls"=>["http://alpha.openaddressesuk.org/postcodes/Uxm2vc"],
+                    "downloaded_at"=>"2015-01-30T17:57:51+00:00",
+                    "processing_script"=>"https://github.com/OpenAddressesUK/sorting_office/tree/0fff78c71a170e2264faef7962e19f99a645c1d0/lib/models/postcode.rb"
+                  },
+                  {
+                    "type"=>"Source",
+                    "urls"=>["http://alpha.openaddressesuk.org/towns/qyHZe2"],
+                    "downloaded_at"=>"2015-01-30T17:57:51+00:00",
+                    "processing_script"=>"https://github.com/OpenAddressesUK/sorting_office/tree/0fff78c71a170e2264faef7962e19f99a645c1d0/lib/models/town.rb"
+                  },
+                  {
+                    "type"=>"Source",
+                    "urls"=>["http://alpha.openaddressesuk.org/streets/Gq5142"],
+                    "downloaded_at"=>"2015-01-30T17:57:51+00:00",
+                    "processing_script"=>"https://github.com/OpenAddressesUK/sorting_office/tree/0fff78c71a170e2264faef7962e19f99a645c1d0/lib/models/street.rb"
+                  }
+                ]
+              }
+            }
+          },
+          "data_type" => "address",
+          "identifying_fields" => nil
+        }.to_json
+
+        @mock_queue.post(@message)
+      end
+
+    end
+
+    it "creates addresses correctly", :vcr do
+      ImportTurbotAddresses.perform
+
+      expect(Address.first.uprn.label).to eq("20033220")
+      expect(Address.first.uri.label).to eq("https://alpha.openaddressesuk.org/addresses/0")
+    end
+  end
+
 end

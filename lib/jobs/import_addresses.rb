@@ -11,7 +11,7 @@ class ImportAddresses
     provenance = create_provenance(address['provenance'])
     a = Address.new(activity_attributes: provenance)
 
-    ['saon', 'paon', 'street', 'locality', 'town', 'postcode'].each do |type|
+    ['uprn', 'uri', 'saon', 'paon', 'street', 'locality', 'town', 'postcode'].each do |type|
       tag_type = TagType.find_or_create_by(label: type)
       a.tags << Tag.create(
                            label: address[type],
