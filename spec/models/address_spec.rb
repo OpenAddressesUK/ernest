@@ -20,6 +20,16 @@ describe Address do
     expect(address.valid_at).to eq(DateTime.parse("2015-01-01"))
   end
 
+  it "should create a basic address with a uri and a uprn" do
+    address = FactoryGirl.create(:address, tags: [
+      FactoryGirl.create(:tag, label: "2004343456", tag_type: FactoryGirl.create(:tag_type, label: "uprn")),
+      FactoryGirl.create(:tag, label: "https://alpha.openaddressesuk.org/addresses/a42F4ts", tag_type: FactoryGirl.create(:tag_type, label: "uri")),
+    ])
+
+    expect(address.tags.count).to eq(2)
+    expect(address.valid?).to eq(true)
+  end
+
   context "scoring" do
 
     before :each do
