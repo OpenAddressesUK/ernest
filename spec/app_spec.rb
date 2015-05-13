@@ -239,6 +239,21 @@ describe Ernest do
 
     end
 
+    it "should return addresses with uris" do
+      FactoryGirl.create(:address, tags: [
+        FactoryGirl.create(:tag, label: "2004343456", tag_type: FactoryGirl.create(:tag_type, label: "uprn")),
+        FactoryGirl.create(:tag, label: "https://alpha.openaddressesuk.org/addresses/a42F4ts", tag_type: FactoryGirl.create(:tag_type, label: "uri")),
+      ])
+
+      get 'addresses'
+      response = JSON.parse last_response.body
+
+      expect(last_response.header["Content-Type"]).to eq("application/json")
+
+      expect(response['addresses'].first["uprn"]["name"]).to eq("2004343456")
+      expect(response['addresses'].first["uri"]["name"]).to eq("https://alpha.openaddressesuk.org/addresses/a42F4ts")
+    end
+
     it "should include static provenance information for old addresses" do
       Timecop.freeze("2014-01-01T11:00:00.000Z")
       FactoryGirl.create(:address)
